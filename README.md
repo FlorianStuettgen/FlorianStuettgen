@@ -31,4 +31,4 @@ A local-first system for reasoning about large inherited SQL models.
 
 ---
 
-*Field execution → project controls → data systems · Edmonton, Alberta*
+Field execution → project controls → data systems · Edmonton, Alberta

@@ -1,0 +1,46 @@
+    b.append(f'<path d="M95 {y} H1305" stroke="{theme.line}" stroke-width="8" stroke-linecap="round"/>')
+    steps = [
+        (110, "FIELD", "Journeyman\nSteamfitter-Pipefitter", "Constructability • sequence\nconstraints • real progress", theme.amber),
+        (365, "DELIVERY", "Industrial construction\n+ supervision", "Workfaces • crews • shutdowns\nexecution pressure", theme.red),
+        (620, "CONTROLS", "Cost • schedule • risk\nchange • governance", "Forecasts • EVM • stage gates\nexecutive decisions", theme.cyan),
+        (875, "DATA", "SQL • Python • ETL\nautomation • analytics", "Models • validation • lineage\nrepeatable reporting", theme.green),
+        (1130, "SYSTEMS", "Decision architecture\n+ executable assurance", "Rules • exceptions • evidence\ndefensible action", theme.purple),
+    ]
+    for i, (cx, label, title_, detail, accent) in enumerate(steps):
+        b.append(f'<circle cx="{cx}" cy="{y}" r="22" fill="{theme.panel}" stroke="{accent}" stroke-width="6" class="{'' if i else 'pulse'}"/>')
+        b.append(text(cx, y - 46, label, 12, cls="mono", anchor="middle", weight=900, fill=accent))
+        b.append(rounded_rect(cx - 108, y + 45, 216, 154, r=18, cls="panel2", filter_="url(#shadow)"))
+        b.append(multiline(cx - 88, y + 80, title_.split("\n"), 16, 22, cls="title sans", weight=820))
+        b.append(multiline(cx - 88, y + 134, detail.split("\n"), 11, 19, cls="muted mono", weight=700))
+    b.append(text(700, 444, "NOT A SOFTWARE ENGINEER WHO VISITED A SITE.  NOT A CONTROLS PROFESSIONAL WHO OCCASIONALLY SCRIPTS.", 12, cls="mono", anchor="middle", weight=850, fill=theme.faint))
+    return svg_shell(theme, w, h, "Florian Stuettgen career architecture", "Timeline connecting field execution, project delivery, controls governance, data engineering, and decision systems.", "\n".join(b))
+
+
+def generate_principles(theme: Theme) -> str:
+    w, h = 1400, 410
+    b: list[str] = []
+    b.append(rounded_rect(32, 32, 1336, 346, r=24, cls="panel", filter_="url(#shadow)"))
+    b.append(rounded_rect(56, 58, 1288, 54, r=14, cls="panel2"))
+    for i, color in enumerate([theme.red, theme.amber, theme.green]):
+        b.append(f'<circle cx="{82 + i*24}" cy="85" r="7" fill="{color}"/>')
+    b.append(text(158, 91, "florian@decision-layer:~/operating-principles", 13, cls="muted mono", weight=700))
+    lines = [
+        (">", "DO NOT MAKE UNCERTAINTY PRETTIER.", theme.red),
+        (">", "MAKE THE SOURCE LOGIC VISIBLE.", theme.cyan),
+        (">", "MAKE THE CONTROLS EXECUTABLE.", theme.green),
+        (">", "MAKE EXCEPTIONS IMPOSSIBLE TO IGNORE.", theme.amber),
+        (">", "MAKE THE DECISION REPRODUCIBLE.", theme.purple),
+    ]
+    y = 154
+    for prompt, line, color in lines:
+        b.append(text(76, y, prompt, 18, cls="mono", weight=900, fill=color))
+        b.append(text(106, y, line, 20, cls="title mono", weight=850))
+        y += 42
+    b.append(f'<rect x="106" y="{y-15}" width="13" height="22" fill="{theme.cyan}" opacity="0.85" class="pulse"/>')
+    b.append(text(1318, 349, "FIELD-BUILT JUDGMENT / CONTROLS DISCIPLINE / DATA-ENGINEERING RIGOR", 11, cls="muted mono", anchor="end", weight=800))
+    return svg_shell(theme, w, h, "Operating principles terminal", "Terminal-style panel listing principles for transparent, executable, reproducible decision systems.", "\n".join(b))
+
+
+def api_json(url: str, token: str | None) -> dict | None:
+    headers = {"Accept": "application/vnd.github+json", "User-Agent": "profile-telemetry-generator"}
+    if token:

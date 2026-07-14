@@ -1,4 +1,4 @@
-*Reported → defensible · specified → observed · executable → understood*
+**Reported → defensible · specified → observed · executable → understood**
 
 ## [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof)
 

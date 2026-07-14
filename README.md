@@ -1,154 +1,147 @@
 <p align="center">
-  <img src="assets/profile-banner.svg" alt="Florian Stuettgen — Project Controls, Data Systems, and Field Execution" width="100%" />
+  <img src="assets/profile-banner.svg" alt="Florian Stuettgen — project controls and data engineering" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/FlorianStuettgen/EQ-Proof"><img alt="Project controls assurance" src="https://img.shields.io/badge/Project_Controls-Assurance-2563EB?style=flat-square" /></a>
-  <a href="https://github.com/FlorianStuettgen/SOC_Replay"><img alt="Evidence engineering" src="https://img.shields.io/badge/Engineering-Evidence-0F766E?style=flat-square" /></a>
-  <img alt="SQL and Python" src="https://img.shields.io/badge/Data-SQL_%7C_Python-334155?style=flat-square" />
-  <img alt="Edmonton, Alberta" src="https://img.shields.io/badge/Edmonton-Alberta-7C3AED?style=flat-square" />
+  <a href="#the-60-second-profile">60-second profile</a> ·
+  <a href="#flagship-systems">Flagship systems</a> ·
+  <a href="#what-i-can-be-trusted-to-own">Operating value</a> ·
+  <a href="#technical-reviewer-index">Technical evidence</a>
 </p>
 
-## I turn fragmented project data into decision systems
+## Most project-reporting failures begin before the dashboard
 
-I build project-controls and data-engineering solutions for complex capital programs, where cost, schedule, risk, procurement, and field-execution data rarely arrive clean, aligned, or decision-ready.
+A schedule can be valid and still disagree with the forecast. A cost report can balance and still contain an impossible EAC. A dashboard can look precise while its assumptions, transformations, and exceptions remain invisible.
 
-My work sits at the intersection of three disciplines:
+I work on that layer.
 
-- **Project controls:** forecasting, earned value, change, risk, schedule assurance, and governance.
-- **Data systems:** SQL models, Python tooling, ETL pipelines, automation, analytics, and reproducible outputs.
-- **Field execution:** practical understanding of how plans, progress, constraints, and reporting behave outside the spreadsheet.
+I turn fragmented cost, schedule, risk, change, procurement, and field-execution data into systems that can be **reconciled, challenged, reproduced, and defended**.
 
-The objective is not another dashboard. It is a traceable operating system for answering:
+My perspective comes from both sides of the workface: I began as a Journeyman Steamfitter-Pipefitter in heavy industrial construction, moved into project controls and capital-program delivery, and then into SQL, Python, automation, and data-system design.
 
-> What was planned, what is happening, where is performance drifting, and what evidence supports the decision?
+> **Field execution taught me where project data loses reality. Project controls taught me where that loss becomes expensive. Data engineering gave me the means to encode the checks.**
 
-## Selected work
+<p align="center">
+  <img src="assets/portfolio-map.svg" alt="Operating model connecting source reality, controls logic, assurance, and decisions" width="100%" />
+</p>
 
-<table>
-<tr>
-<td width="50%" valign="top">
+## The 60-second profile
 
-### [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof)
+**What I am:** a project-controls and data-systems specialist with 10+ years across heavy industrial construction, major capital programs, LNG megaproject delivery, and national shipbuilding environments.
 
-**Executable assurance for project-controls data.**
+**What I build:** integrated controls datasets, reporting pipelines, assurance rules, forecast models, exception registers, and executive analytics that preserve lineage back to source logic.
 
-Turns Primavera P6 XER files and cost-system exports into a repeatable close gate. It checks cost, earned-value, change, risk, and schedule relationships before inconsistent data reaches executive reporting.
+**What makes me different:** I can move between field execution, controls governance, commercial context, and technical implementation without treating any one of them as a black box.
 
-**Engineering evidence**
-
-- Native P6 XER and tabular cost ingestion
-- Versioned equation catalogue and client rule packs
-- Ranked exception registers and automation-ready exit codes
-- CI, CodeQL, deterministic evidence, and a 92% coverage gate
-
-</td>
-<td width="50%" valign="top">
-
-### [SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay)
-
-**A deterministic, evidence-first cyber range.**
-
-Combines a segmented physical lab with an offline detection engine that compiles inspectable rules, evaluates synthetic or sanitized telemetry, and produces integrity-checkable experiment bundles.
-
-**Engineering evidence**
-
-- Explicit compile, index, evaluate, and verify pipeline
-- Cryptographically linked execution ledger
-- Positive, repeated-window, and negative controls
-- Strict typing, linting, 90%+ branch coverage, and wheel builds
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Real Estate Decision Desk](https://github.com/FlorianStuettgen/real-estate-decision-desk)
-
-**Traceable household decision support.**
-
-A design-stage system for comparing property listings through mandatory gates, weighted criteria, cost exposure, uncertainty, sensitivity analysis, and preserved decision rationale.
-
-**Current boundary**
-
-The repository documents the product architecture and minimum viable workflow without presenting concept work as completed software.
-
-</td>
-<td width="50%" valign="top">
-
-### Current direction
-
-I am developing tools that make complex operational decisions more:
-
-- **consistent** through explicit rules and shared data models;
-- **auditable** through preserved assumptions and evidence;
-- **repeatable** through code, tests, and deterministic outputs;
-- **useful** by connecting technical correctness to real operating decisions.
-
-</td>
-</tr>
-</table>
-
-## What I build
-
-| Capability | Typical output |
-| --- | --- |
-| Integrated project-controls data | Cost, schedule, risk, change, procurement, and progress models |
-| Reporting automation | Repeatable pipelines replacing manual workbook assembly |
-| Controls assurance | Reconciliation rules, exception registers, quality gates, and audit trails |
-| Forecast intelligence | Variance analysis, trend logic, scenario testing, and decision-ready datasets |
-| Executive analytics | Power BI and structured reporting grounded in traceable source logic |
-| Engineering documentation | Architecture, operating boundaries, validation evidence, and reproducible workflows |
-
-## How I approach engineering
-
-**Evidence over appearance.** A polished interface is useful; a reproducible result is stronger.
-
-**Explicit boundaries over implied capability.** Design-stage work, simulated systems, and production-ready components should never be presented as the same thing.
-
-**Systems over spreadsheet heroics.** Important controls should live in reusable models, rules, tests, and pipelines—not in one person’s monthly workbook.
-
-**Field reality over abstract optimization.** Data structures must reflect how work is authorized, sequenced, executed, measured, challenged, and changed.
-
-**Traceability over false precision.** A decision is only as defensible as its assumptions, lineage, and uncertainty are visible.
-
-## Technical toolkit
-
-| Domain | Tools and methods |
-| --- | --- |
-| Project controls | Primavera P6, earned value, forecasting, variance analysis, change control, risk, stage-gate readiness |
-| Data engineering | SQL, Python, ETL, data modelling, validation, automation, deterministic processing |
-| Analytics | Power BI, Excel, Power Query, VBA, executive reporting, scenario and sensitivity analysis |
-| Project systems | SAP, Oracle, Smartsheet, Procore, SharePoint, Microsoft Project |
-| Engineering workflow | Git, GitHub Actions, testing, static analysis, schemas, architecture documentation |
-| Field and design context | Heavy industrial construction, piping systems, AutoCAD, Navisworks, Revit |
-
-## Background
-
-My path into data systems began in field execution. I am a Journeyman Steamfitter-Pipefitter who moved through industrial construction and project delivery into project controls, analytics, and data engineering.
-
-That progression matters: it lets me evaluate a data model not only by whether it runs, but by whether its representation of progress, constraints, cost, schedule, and risk survives contact with real work.
-
-I complement that operating background with dual MBA credentials and applied data-science training through MIT. The combination is deliberate: field literacy, commercial context, controls governance, and technical implementation should reinforce one another.
-
-## Repository standard
-
-Across my work, I aim to make the following visible:
-
-```text
-problem definition
-→ operating boundary
-→ architecture and data contracts
-→ executable implementation
-→ tests and quality gates
-→ reproducible evidence
-→ honest limitations
-```
-
-A repository should let a technical reviewer understand how the system works, while allowing a project or business leader to understand why it matters.
+**What I optimize for:** decisions that remain explainable after the meeting, repeatable next month, and defensible under technical or commercial challenge.
 
 ---
 
+## Flagship systems
+
+### 01 — [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof) · Project-controls assurance
+
+<a href="https://github.com/FlorianStuettgen/EQ-Proof">
+  <img src="https://raw.githubusercontent.com/FlorianStuettgen/EQ-Proof/main/docs/assets/hero.svg" alt="EQ-Proof project controls assurance" width="100%" />
+</a>
+
+EQ-Proof asks a question most reporting systems skip:
+
+> **Are the numbers internally admissible before they are visualized?**
+
+It converts Primavera P6 XER files and cost-system exports into an executable close gate. Forecast, earned-value, change, risk, and schedule relationships are evaluated as versioned controls rather than copied spreadsheet formulas.
+
+| Operating problem | Implemented response |
+| --- | --- |
+| EAC, AC, and ETC disagree | Executable equation catalogue with ranked blockers |
+| P6 status contradicts remaining duration | Native XER parsing and schedule-assurance rules |
+| Governance is trapped in monthly workbooks | Reusable client equation packs and canonical aliases |
+| Review depends on visual inspection | Machine-readable JSON, exception CSV, and close-decision report |
+| Results cannot be reproduced | Deterministic processing, tests, CI, CodeQL, and a 92% coverage gate |
+
+**What this proves about me:** I can take domain governance that normally lives in spreadsheets and expert memory, define its operating boundary, model it safely, implement it, and produce evidence that a technical reviewer can inspect.
+
+[Run the example](https://github.com/FlorianStuettgen/EQ-Proof#the-useful-part) · [Review the controls model](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/PROJECT_CONTROLS.md) · [Inspect the tests](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/tests/test_controls.py)
+
+---
+
+### 02 — [SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay) · Evidence engineering
+
+<a href="https://github.com/FlorianStuettgen/SOC_Replay">
+  <img src="https://raw.githubusercontent.com/FlorianStuettgen/SOC_Replay/main/docs/assets/soc-replay-hero.svg" alt="SOC_Replay deterministic evidence engine" width="100%" />
+</a>
+
+SOC_Replay is intentionally outside my primary project-controls domain. That is the point: it demonstrates whether the engineering discipline transfers.
+
+The system compiles inspectable detection rules, evaluates synthetic or sanitized telemetry, verifies exact expectations, and produces integrity-checkable experiment bundles through a five-stage execution pipeline.
+
+| Engineering claim | Repository evidence |
+| --- | --- |
+| Execution is deterministic | Semantic plan fingerprints and ordered stage outputs |
+| Internal tampering is observable | Cryptographically linked execution ledger |
+| Tests include meaningful controls | Positive, repeated-window, and zero-detection scenarios |
+| The package has a constrained authority boundary | Simulation-only response model and no live-I/O execution surface |
+| Quality is enforced rather than described | Strict typing, linting, 90%+ branch coverage, self-audit, and wheel build |
+
+**What this proves about me:** I do not rely on domain familiarity to hide weak engineering. I can design contracts, boundaries, pipelines, evidence, verification, and documentation that survive inspection on their own merits.
+
+[Run the 90-second proof](https://github.com/FlorianStuettgen/SOC_Replay#the-90-second-proof) · [Read the execution core](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/22-Execution-Core.md) · [Inspect the ledger design](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/23-Execution-Ledger.md)
+
+---
+
+### 03 — [Real Estate Decision Desk](https://github.com/FlorianStuettgen/real-estate-decision-desk) · Decision architecture
+
+This design-stage project applies the same operating philosophy to household property selection: mandatory gates before weighted preferences, evidence separated from assumptions, costs separated from uncertainty, and sensitivity analysis before commitment.
+
+It is deliberately labelled as design-stage work. The repository demonstrates product framing, decision modelling, data architecture, and honest maturity boundaries—not completed software.
+
+**What this proves about me:** I model decisions, not merely databases. A technically correct system is insufficient if it hides uncertainty, permits non-negotiables to be averaged away, or cannot explain why a decision changed.
+
+---
+
+## What I can be trusted to own
+
+I create the most value where an organization has important project information but does not yet have a trustworthy system around it:
+
+- cost, schedule, risk, change, procurement, and progress data that disagree across contractors or platforms;
+- monthly reporting assembled through fragile workbook chains and manual reconciliation;
+- forecasts that look credible but cannot be bridged to detail, assumptions, or approved change;
+- Power BI or executive reporting that lacks durable source logic and auditability;
+- controls requirements that exist as tribal knowledge instead of reusable rules;
+- field and project teams that need a translator between operating reality, governance, and data engineering.
+
+The objective is not to automate every judgment. It is to automate the repeatable logic, expose the exceptions, preserve the assumptions, and leave accountable decisions with people.
+
+## Why the career arc matters
+
+| Layer | What it added |
+| --- | --- |
+| **Field execution** | Understanding of constructability, sequencing, constraints, progress, supervision, and the gap between reported status and physical reality |
+| **Project controls** | Forecasting, earned value, change, risk, schedule assurance, stage-gate governance, and executive decision requirements |
+| **Data engineering** | SQL models, Python tooling, ETL, validation, automation, schemas, tests, reproducibility, and technical documentation |
+| **Commercial context** | Dual MBA training that connects technical outputs to governance, operating models, and business decisions |
+| **Applied analytics** | MIT data-science training used as an implementation discipline rather than a credential substitute |
+
+I am not trying to become a software engineer who once visited a project site, or a project-controls professional who occasionally scripts. The value is in maintaining all three perspectives at once.
+
+## Technical reviewer index
+
+| System | Start here | Architecture and boundaries | Verification |
+| --- | --- | --- | --- |
+| **EQ-Proof** | [Project-controls workbench](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/PROJECT_CONTROLS.md) | [Architecture](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/ARCHITECTURE.md) · [Threat model](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/THREAT_MODEL.md) | [Controls tests](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/tests/test_controls.py) · [CI workflow](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/.github/workflows/ci.yml) |
+| **SOC_Replay** | [90-second proof](https://github.com/FlorianStuettgen/SOC_Replay#the-90-second-proof) | [System architecture](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/01-Architecture.md) · [Implementation state](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/14-Implementation-State.md) | [Test suite](https://github.com/FlorianStuettgen/SOC_Replay/tree/main/tests) · [Quality gate](https://github.com/FlorianStuettgen/SOC_Replay#quality-gate) |
+| **Decision Desk** | [Decision workflow](https://github.com/FlorianStuettgen/real-estate-decision-desk#decision-workflow) | [Data architecture](https://github.com/FlorianStuettgen/real-estate-decision-desk#data-architecture) | [Current maturity boundary](https://github.com/FlorianStuettgen/real-estate-decision-desk#status) |
+
+## Working principle
+
+```text
+Do not make uncertainty prettier.
+Make the source logic visible.
+Make the controls executable.
+Make exceptions impossible to ignore.
+Make the decision reproducible.
+```
+
 <p align="center">
-  <strong>Project controls discipline. Data-engineering rigor. Field-built judgment.</strong>
+  <strong>Field-built judgment · Project-controls discipline · Data-engineering rigor</strong>
 </p>

@@ -61,13 +61,13 @@ These projects begin where the answer still looks reasonable, but the evidence u
 <sub>PRIVATE DEVELOPMENT</sub>
 
 > **Not:** What does this query do?  
-> **Instead:** What else stops working when it changes?
+> **Instead:** What else does it hold together?
 
 A query can be readable, tested, and still be dangerous to touch. Query Cartographer is built for inherited SQL where the code is visible but the consequences are not.
 
-Its public boundary is intentionally narrow: structure, lineage, and change impact. The implementation remains private while the model hardens.
+Only the problem statement is public for now. The implementation is not.
 
-`local-first` · `inherited SQL` · `controlled disclosure`
+`local-first` · `inherited SQL` · `private development`
 
 ## [Real Estate Decision Desk](https://github.com/FlorianStuettgen/real-estate-decision-desk)
 

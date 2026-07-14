@@ -1,0 +1,64 @@
+        headers["Authorization"] = f"Bearer {token}"
+        headers["X-GitHub-Api-Version"] = "2022-11-28"
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=15) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError):
+        return None
+
+
+def repository_telemetry(repo: str, fallback: dict[str, str], token: str | None) -> dict[str, str]:
+    out = dict(fallback)
+    commit = api_json(f"https://api.github.com/repos/{OWNER}/{repo}/commits/main", token)
+    if commit:
+        message = commit.get("commit", {}).get("message", "").splitlines()[0].strip()
+        sha = commit.get("sha", "")[:7]
+        if message:
+            out["latest"] = f"{sha} · {message[:46]}"
+    runs = api_json(f"https://api.github.com/repos/{OWNER}/{repo}/actions/runs?per_page=10", token)
+    if runs:
+        workflow_runs = runs.get("workflow_runs", [])
+        preferred = next((r for r in workflow_runs if r.get("name", "").lower() in {"ci", "codeql"}), workflow_runs[0] if workflow_runs else None)
+        if preferred:
+            conclusion = (preferred.get("conclusion") or preferred.get("status") or "unknown").upper()
+            out["ci"] = f"CI {conclusion}"
+    return out
+
+
+def write(name: str, content: str) -> None:
+    path = ASSETS / name
+    path.write_text(content, encoding="utf-8")
+
+
+def main() -> None:
+    token = os.getenv("GITHUB_TOKEN")
+    telemetry = {
+        "EQ-Proof": repository_telemetry(
+            "EQ-Proof",
+            {"ci": "CI ACTIVE", "latest": "6a01576 · Align Pages deployment", "gate": "92% COVERAGE · CODEQL · DEMO REBUILD"},
+            token,
+        ),
+        "SOC_Replay": repository_telemetry(
+            "SOC_Replay",
+            {"ci": "CI ACTIVE", "latest": "a5695bd · Complete v3.1 contracts", "gate": "42 TESTS · 93% BRANCH · SCHEMA VALIDATION"},
+            token,
+        ),
+    }
+    refreshed = datetime.now(timezone.utc).strftime("%Y-%m-%d UTC")
+
+    for theme in (DARK, LIGHT):
+        suffix = theme.name
+        write(f"hero-{suffix}.svg", generate_hero(theme))
+        for key in ("recruiter", "manager", "engineer"):
+            write(f"route-{key}-{suffix}.svg", generate_audience_card(theme, key))
+        write(f"live-status-{suffix}.svg", generate_live_status(theme, telemetry, refreshed))
+        write(f"eq-proof-{suffix}.svg", generate_eq_card(theme))
+        write(f"soc-replay-{suffix}.svg", generate_soc_card(theme))
+        write(f"decision-desk-{suffix}.svg", generate_decision_card(theme))
+        write(f"career-arc-{suffix}.svg", generate_career(theme))
+        write(f"principles-{suffix}.svg", generate_principles(theme))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Florian Stuettgen portfolio header</title>
+  <desc id="desc">A dark engineering dashboard motif presenting Florian Stuettgen as a builder of verifiable data systems for high-consequence decisions.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0b1d33"/>
+      <stop offset="1" stop-color="#102a43"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="0.5" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8ec5ff" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="320" rx="22" fill="url(#bg)"/>
+  <rect width="1200" height="320" rx="22" fill="url(#grid)"/>
+
+  <circle cx="1030" cy="58" r="150" fill="#38bdf8" opacity="0.055"/>
+  <circle cx="1110" cy="280" r="190" fill="#a78bfa" opacity="0.045"/>
+
+  <rect x="54" y="52" width="6" height="204" rx="3" fill="url(#accent)" filter="url(#glow)"/>
+
+  <text x="92" y="112" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="50" font-weight="700" letter-spacing="-1.5">Florian Stuettgen</text>
+  <text x="94" y="158" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23" font-weight="500">Building verifiable data systems for high-consequence decisions</text>
+  <text x="94" y="201" fill="#7dd3fc" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="17">INGEST  →  GOVERN  →  RECONSTRUCT  →  PROVE</text>
+
+  <g transform="translate(94 230)">
+    <rect width="145" height="38" rx="19" fill="#0f2d46" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <text x="72.5" y="25" text-anchor="middle" fill="#bae6fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">DATA SYSTEMS</text>
+
+    <rect x="158" width="180" height="38" rx="19" fill="#132a48" stroke="#60a5fa" stroke-opacity="0.45"/>
+    <text x="248" y="25" text-anchor="middle" fill="#bfdbfe" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">DECISION ENGINEERING</text>
+
+    <rect x="351" width="160" height="38" rx="19" fill="#202447" stroke="#a78bfa" stroke-opacity="0.45"/>
+    <text x="431" y="25" text-anchor="middle" fill="#ddd6fe" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">PROJECT CONTROLS</text>
+  </g>
+
+  <g transform="translate(850 97)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 73 L58 26 L118 65 L178 12 L248 58" stroke="#38bdf8" stroke-width="3" opacity="0.9"/>
+    <path d="M0 121 L58 93 L118 105 L178 69 L248 91" stroke="#a78bfa" stroke-width="2" opacity="0.72"/>
+    <g fill="#07111f" stroke="#7dd3fc" stroke-width="3">
+      <circle cx="0" cy="73" r="6"/><circle cx="58" cy="26" r="6"/><circle cx="118" cy="65" r="6"/><circle cx="178" cy="12" r="6"/><circle cx="248" cy="58" r="6"/>
+    </g>
+    <g fill="#07111f" stroke="#c4b5fd" stroke-width="2">
+      <circle cx="0" cy="121" r="5"/><circle cx="58" cy="93" r="5"/><circle cx="118" cy="105" r="5"/><circle cx="178" cy="69" r="5"/><circle cx="248" cy="91" r="5"/>
+    </g>
+    <path d="M0 152 H248" stroke="#94a3b8" stroke-opacity="0.2"/>
+    <path d="M0 0 V152" stroke="#94a3b8" stroke-opacity="0.2"/>
+  </g>
+</svg>

@@ -1,20 +1,20 @@
-<p align="center">
-  <img src="assets/profile-hero.svg" alt="Florian Stuettgen — building verifiable data systems for high-consequence decisions" width="100%" />
-</p>
+Most of the systems here began with an answer that looked reasonable.
 
-Most operational systems are good at producing an answer. They are much worse at showing whether the answer is internally consistent, what changed it, and whether someone else can reproduce it.
+The interesting part starts when two reasonable answers cannot both be true.
 
-That is the territory I tend to work in.
+I build tools that make those disagreements visible, test the relationships underneath them, and preserve enough evidence for someone else to revisit the decision later.
 
 ## [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof)
 
-**When a monthly close is wrong, the problem is often not one number. It is the relationship between several numbers that are all individually plausible.**
+A project can report an EAC of **$407M** while its own governed detail reconstructs to **$418M**. Both views may be polished. Both may have passed through several reviews. They still cannot both describe the same position.
 
-EQ-Proof takes ordinary Primavera P6, cost, change, and risk exports and reconstructs the position independently. User-written equations become executable controls; failed relationships become traceable exceptions; and the path from source record to close decision remains visible.
+EQ-Proof does not try to predict which number feels more credible. It rebuilds the close from ordinary Primavera P6, cost, change, and risk exports, then executes the relationships the project says should hold.
 
-The useful part is not another dashboard. It is a way to ask whether a reported position can actually be defended before it is accepted, circulated, or built into the next forecast.
+The unusual part is that user-written equations become working controls. When one fails, the result is not just a red indicator. The system retains the failed relationship, the affected records, the reconstructed position, and the path from source data to the close decision.
 
-[Open the synthetic Control Room](https://florianstuettgen.github.io/EQ-Proof/) · [Follow the worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [See the product architecture](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/PRODUCT_ARCHITECTURE.md)
+That makes it useful before a forecast is accepted, circulated, or quietly inherited by the next reporting cycle.
+
+[Open the synthetic Control Room](https://florianstuettgen.github.io/EQ-Proof/) · [Follow the worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [See how it is built](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/PRODUCT_ARCHITECTURE.md)
 
 <p align="center">
   <a href="https://florianstuettgen.github.io/EQ-Proof/">
@@ -24,34 +24,36 @@ The useful part is not another dashboard. It is a way to ask whether a reported 
 
 ## [SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay)
 
-**A detection firing is not the same as proving the detector behaved correctly.**
+A detector can become faster and still become wrong.
 
-SOC_Replay executes defensive telemetry scenarios as exact contracts. Its optimized indexed path is checked against a deliberately slower full-scan reference, every rule leaves an execution trace even when it detects nothing, and the final reports are tied together as a verifiable evidence bundle.
+SOC_Replay keeps a deliberately slower full-scan implementation beside its optimized indexed path. The optimized path has to produce the same semantic result, not merely finish sooner. Every rule leaves a trace, including rules that correctly detect nothing, and the resulting reports are bound together as a verifiable evidence bundle.
 
-The unusual part is that optimization is treated as something that must preserve meaning, not merely improve speed. The project is less interested in dramatic alerts than in whether the same inputs can produce the same explainable result again.
+This turns optimization into something that must preserve meaning. It also makes defensive experiments repeatable: the same scenario can be executed again, inspected at each stage, and checked for the exact result it claimed to produce.
+
+The project is intentionally less interested in dramatic alerts than in whether an alert can be explained and reproduced.
 
 [Run the 90-second proof](https://github.com/FlorianStuettgen/SOC_Replay#the-90-second-proof) · [Read the engineering review](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md) · [Inspect the execution core](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/22-Execution-Core.md)
 
-## Other directions
+## Other threads
 
 ### Query Cartographer
 
-**Large SQL systems become dangerous when nobody can say what a small change will disturb.**
+Inherited SQL often becomes risky long before it becomes visibly broken. Query Cartographer is a private project for mapping query structure, dependencies, lineage, and likely change impact before modification.
 
-This private project maps inherited queries into structure, dependencies, lineage, and change risk before modification. The goal is not to make complicated SQL look simple. It is to make the consequences of touching it less mysterious.
+The aim is not to make a large model look simple. It is to make the consequences of touching it less mysterious.
 
 ### [Real Estate Decision Desk](https://github.com/FlorianStuettgen/real-estate-decision-desk)
 
-**A precise ranking is not necessarily a reliable decision.**
+A property ranking can be precise and still be fragile.
 
-This design-stage project applies the same thinking to property comparison: hard constraints before preferences, costs separated from assumptions, uncertainty kept visible, and sensitivity analysis used to show when a preferred option is fragile.
+This design-stage project separates hard constraints from preferences, known costs from assumptions, and strong evidence from weak evidence. Sensitivity analysis then shows whether the preferred option survives when those assumptions move.
 
-## The recurring question
+It is a household-scale problem, but the underlying question is the same: does the decision remain defensible when the inputs are challenged?
 
-Across these projects, I keep returning to the same problem:
+## The common thread
 
-> Can a system explain why its answer should be trusted, where that answer came from, and what would cause it to change?
+These projects are variations on one question:
 
-I came to software through field execution and project controls, where schedule, cost, risk, procurement, and site reality rarely agree cleanly. That background is why I tend to treat assumptions, exceptions, lineage, and reproducibility as parts of the product rather than documentation added afterward.
+> What would a system need to preserve so that its answer could be challenged without becoming impossible to reconstruct?
 
-Edmonton, Alberta · Python, SQL, JavaScript, project-controls data, and the systems around them
+I arrived at that question through field execution and project controls, where schedule, cost, risk, procurement, and site reality rarely agree cleanly. That background is why assumptions, exceptions, lineage, and reproducibility tend to become part of the product rather than documentation added afterward.

@@ -2,24 +2,19 @@
   <img src="assets/profile-hero.svg" alt="Florian Stuettgen — building verifiable data systems for high-consequence decisions" width="100%" />
 </p>
 
-<p align="center">
-  <strong>Project controls · data engineering · decision systems</strong><br/>
-  Edmonton, Alberta, Canada
-</p>
+Most operational systems are good at producing an answer. They are much worse at showing whether the answer is internally consistent, what changed it, and whether someone else can reproduce it.
 
-I build software that turns fragmented operational data into **traceable decisions, reproducible evidence, and auditable workflows**.
+That is the territory I tend to work in.
 
-My background spans field execution, project-controls governance, data modelling, automation, and applied data science. The common thread is systems that do more than display an answer: they preserve the route from source data to decision.
+## [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof)
 
-## Featured engineering
+**When a monthly close is wrong, the problem is often not one number. It is the relationship between several numbers that are all individually plausible.**
 
-### [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof) · Project-controls assurance system
+EQ-Proof takes ordinary Primavera P6, cost, change, and risk exports and reconstructs the position independently. User-written equations become executable controls; failed relationships become traceable exceptions; and the path from source record to close decision remains visible.
 
-A local-first Python system that reconstructs monthly-close positions from Primavera P6 XER, cost, change, risk, and user-authored equations. It produces ranked exceptions, evidence lineage, deterministic artifacts, and an executable close gate without uploading real project files.
+The useful part is not another dashboard. It is a way to ask whether a reported position can actually be defended before it is accepted, circulated, or built into the next forecast.
 
-**Engineering evidence:** native adapters, safe expression evaluation, schema-versioned outputs, CLI and local web application, Python 3.10–3.13 CI, CodeQL, and a branch-aware 92% coverage gate.
-
-[Launch the synthetic Control Room](https://florianstuettgen.github.io/EQ-Proof/) · [Read the case study](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [Review the architecture](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/PRODUCT_ARCHITECTURE.md)
+[Open the synthetic Control Room](https://florianstuettgen.github.io/EQ-Proof/) · [Follow the worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [See the product architecture](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/PRODUCT_ARCHITECTURE.md)
 
 <p align="center">
   <a href="https://florianstuettgen.github.io/EQ-Proof/">
@@ -27,45 +22,36 @@ A local-first Python system that reconstructs monthly-close positions from Prima
   </a>
 </p>
 
-### [SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay) · Defensive telemetry evidence engine
+## [SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay)
 
-A deterministic replay engine that compiles inspectable detection rules, executes exact scenario contracts, compares indexed execution with a full-scan reference implementation, and emits integrity-checkable evidence bundles.
+**A detection firing is not the same as proving the detector behaved correctly.**
 
-**Engineering evidence:** immutable runtime state, differential correctness checks, cryptographically linked execution traces, Draft 2020-12 schema validation, reproducible wheel verification, zero runtime dependencies, and 90%+ branch coverage.
+SOC_Replay executes defensive telemetry scenarios as exact contracts. Its optimized indexed path is checked against a deliberately slower full-scan reference, every rule leaves an execution trace even when it detects nothing, and the final reports are tied together as a verifiable evidence bundle.
+
+The unusual part is that optimization is treated as something that must preserve meaning, not merely improve speed. The project is less interested in dramatic alerts than in whether the same inputs can produce the same explainable result again.
 
 [Run the 90-second proof](https://github.com/FlorianStuettgen/SOC_Replay#the-90-second-proof) · [Read the engineering review](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md) · [Inspect the execution core](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/22-Execution-Core.md)
 
-## What this portfolio demonstrates
+## Other directions
 
-- **Data engineering:** parsers, canonical models, adapters, validation contracts, deterministic transformations, and export pipelines.
-- **Reliability engineering:** explicit boundaries, immutable state, reproducible artifacts, adversarial tests, CI quality gates, and failure diagnostics.
-- **Decision engineering:** rule execution, scenario analysis, evidence graphs, reconciliation logic, and human-readable action outputs.
-- **Technical communication:** architecture records, product boundaries, threat models, case studies, and reproducible demonstrations.
+### Query Cartographer
 
-## Additional work
+**Large SQL systems become dangerous when nobody can say what a small change will disturb.**
 
-### [Real Estate Decision Desk](https://github.com/FlorianStuettgen/real-estate-decision-desk) · Product architecture
+This private project maps inherited queries into structure, dependencies, lineage, and change risk before modification. The goal is not to make complicated SQL look simple. It is to make the consequences of touching it less mysterious.
 
-A design-stage decision system for comparing property listings through mandatory gates, weighted criteria, cost and risk models, sensitivity analysis, and evidence-linked decision history. The repository deliberately distinguishes the implemented state from the intended product.
+### [Real Estate Decision Desk](https://github.com/FlorianStuettgen/real-estate-decision-desk)
 
-### Query Cartographer · Private development
+**A precise ranking is not necessarily a reliable decision.**
 
-A local-first system for reasoning about large inherited SQL models by mapping query structure, dependencies, lineage, and risk before modification.
+This design-stage project applies the same thinking to property comparison: hard constraints before preferences, costs separated from assumptions, uncertainty kept visible, and sensitivity analysis used to show when a preferred option is fragile.
 
-## Engineering standards
+## The recurring question
 
-I prefer narrow claims backed by executable proof over impressive-sounding claims backed by screenshots. My projects emphasize:
+Across these projects, I keep returning to the same problem:
 
-`correctness before optimization` · `local-first data handling` · `deterministic outputs` · `typed boundaries` · `reproducible builds` · `documentation that matches implementation`
+> Can a system explain why its answer should be trusted, where that answer came from, and what would cause it to change?
 
-## Background
+I came to software through field execution and project controls, where schedule, cost, risk, procurement, and site reality rarely agree cleanly. That background is why I tend to treat assumptions, exceptions, lineage, and reproducibility as parts of the product rather than documentation added afterward.
 
-**Field execution → project controls → data systems**
-
-I have worked across construction and capital-program environments where cost, schedule, risk, procurement, and field data are fragmented across contractors and enterprise tools. That domain experience shapes how I design systems: assumptions remain visible, lineage survives transformation, and outputs must support an actual decision.
-
-Formal training includes a dual Global MBA, MIT Applied Data Science, data science and machine learning through MIT Schwarzman College of Computing, and a Canadian Journeyman Steamfitter-Pipefitter credential.
-
-## Technical surface
-
-`Python` · `SQL` · `JavaScript` · `GitHub Actions` · `JSON Schema` · `Power BI` · `Power Query` · `Excel` · `Primavera P6` · `SAP / Oracle data` · `Smartsheet` · `SharePoint`
+Edmonton, Alberta · Python, SQL, JavaScript, project-controls data, and the systems around them

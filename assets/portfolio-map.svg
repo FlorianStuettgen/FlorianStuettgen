@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" role="img" aria-labelledby="title desc">
+  <title id="title">Florian Stuettgen portfolio operating model</title>
+  <desc id="desc">Field execution and enterprise project data flow through controls logic and evidence engineering into defensible decisions.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="48%" stop-color="#0d1728"/>
+      <stop offset="100%" stop-color="#0a2026"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2dd4bf"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="560" rx="28" fill="url(#bg)"/>
+  <rect width="1400" height="560" rx="28" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1398" height="558" rx="27" fill="none" stroke="#ffffff" stroke-opacity="0.10"/>
+
+  <text x="64" y="64" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">THE OPERATING MODEL BEHIND MY WORK</text>
+  <text x="64" y="97" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17">The same discipline connects capital-project controls, evidence engineering, and decision-support systems.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="64" y="142" width="280" height="278" rx="20" fill="#0f1d30" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <rect x="385" y="142" width="280" height="278" rx="20" fill="#111f31" stroke="#60a5fa" stroke-opacity="0.45"/>
+    <rect x="706" y="142" width="280" height="278" rx="20" fill="#10232d" stroke="#2dd4bf" stroke-opacity="0.48"/>
+    <rect x="1027" y="142" width="309" height="278" rx="20" fill="#10262b" stroke="#34d399" stroke-opacity="0.48"/>
+  </g>
+
+  <rect x="88" y="166" width="72" height="6" rx="3" fill="url(#blue)"/>
+  <text x="88" y="210" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">01 / SOURCE REALITY</text>
+  <text x="88" y="248" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="700">What actually happened?</text>
+  <text x="88" y="286" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Field execution</text>
+  <text x="88" y="316" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Primavera P6 schedules</text>
+  <text x="88" y="346" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Cost, change, risk, progress</text>
+  <text x="88" y="376" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Enterprise-system exports</text>
+
+  <rect x="409" y="166" width="72" height="6" rx="3" fill="url(#blue)"/>
+  <text x="409" y="210" fill="#93c5fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">02 / CONTROLS LOGIC</text>
+  <text x="409" y="248" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="700">What must reconcile?</text>
+  <text x="409" y="286" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Canonical data models</text>
+  <text x="409" y="316" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Forecast and EVM equations</text>
+  <text x="409" y="346" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Schedule and change gates</text>
+  <text x="409" y="376" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Explicit assumptions</text>
+
+  <rect x="730" y="166" width="72" height="6" rx="3" fill="url(#green)"/>
+  <text x="730" y="210" fill="#5eead4" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">03 / ASSURANCE</text>
+  <text x="730" y="248" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="700">Can the result be trusted?</text>
+  <text x="730" y="286" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Automated validation</text>
+  <text x="730" y="316" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Exception registers</text>
+  <text x="730" y="346" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Tests, hashes, and lineage</text>
+  <text x="730" y="376" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Reproducible evidence</text>
+
+  <rect x="1051" y="166" width="72" height="6" rx="3" fill="url(#green)"/>
+  <text x="1051" y="210" fill="#6ee7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">04 / DECISION</text>
+  <text x="1051" y="248" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="700">What should happen next?</text>
+  <text x="1051" y="286" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Close gate</text>
+  <text x="1051" y="316" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Forecast intervention</text>
+  <text x="1051" y="346" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Executive reporting</text>
+  <text x="1051" y="376" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">Defensible audit trail</text>
+
+  <path d="M344 281H374" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <path d="M665 281H695" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <path d="M986 281H1016" stroke="#2dd4bf" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+  <rect x="64" y="455" width="1272" height="58" rx="16" fill="#08131f" stroke="#ffffff" stroke-opacity="0.10"/>
+  <text x="92" y="490" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">PORTFOLIO PROOF:</text>
+  <text x="272" y="490" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">EQ-Proof</text>
+  <text x="360" y="490" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17">encodes controls logic</text>
+  <text x="555" y="490" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17">•</text>
+  <text x="582" y="490" fill="#5eead4" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">SOC_Replay</text>
+  <text x="690" y="490" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17">proves deterministic evidence</text>
+  <text x="936" y="490" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17">•</text>
+  <text x="963" y="490" fill="#6ee7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Decision Desk</text>
+  <text x="1090" y="490" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17">makes tradeoffs explicit</text>
+</svg>

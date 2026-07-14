@@ -2,6 +2,8 @@ name: Build profile operating system
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
   schedule:
     - cron: "17 11 * * *"
   push:

@@ -10,8 +10,8 @@ Local-first monthly-close assurance for Primavera P6, cost, change, risk, and pr
 <p align="center">
   <a href="https://florianstuettgen.github.io/EQ-Proof/">
     <img
-      src="https://raw.githubusercontent.com/FlorianStuettgen/EQ-Proof/955e5be8550423192d301feaa30bd345da3ebc03/docs/assets/control-room.svg"
-      alt="EQ-Proof Control Room showing a blocked monthly close, reconstructed forecast position, and supporting evidence"
+      src="assets/eq-proof-aperture.svg"
+      alt="EQ-Proof evidence aperture showing a blocked monthly close, reported EAC of $407M, defensible EAC of $418M, an $11M deterministic gap, and a reconstructed risk-adjusted position of $483M"
       width="100%">
   </a>
 </p>

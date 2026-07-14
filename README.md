@@ -1,4 +1,4 @@
-<sub>reported → defensible</sub>
+<sub>reported → defensible · specified → observed · executable → understood</sub>
 
 ## [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof)
 
@@ -17,16 +17,12 @@ Monthly-close assurance for Primavera P6, cost, change, risk, and project-specif
   </a>
 </p>
 
-<sub>specified → observed</sub>
-
 ## [SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay)
 
 Deterministic defensive telemetry replay with exact scenario contracts and verifiable evidence bundles.
 
 [90-second proof](https://github.com/FlorianStuettgen/SOC_Replay#the-90-second-proof)
 · [Source](https://github.com/FlorianStuettgen/SOC_Replay)
-
-<sub>executable → understood</sub>
 
 ## Query Cartographer
 

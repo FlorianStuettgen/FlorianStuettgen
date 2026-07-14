@@ -1,49 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">Florian Stuettgen — Project Controls and Data Systems</title>
-  <desc id="desc">Professional banner emphasizing project controls, data engineering, and field execution.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="470" viewBox="0 0 1400 470" role="img" aria-labelledby="title desc">
+  <title id="title">Florian Stuettgen — Project Controls and Data Engineering</title>
+  <desc id="desc">A professional portfolio banner showing field, project controls, data engineering, assurance, and decision outputs.</desc>
   <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1220"/>
-      <stop offset="55%" stop-color="#111c31"/>
-      <stop offset="100%" stop-color="#0d2630"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050b14"/>
+      <stop offset="52%" stop-color="#0c1628"/>
+      <stop offset="100%" stop-color="#082129"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#38bdf8"/>
       <stop offset="100%" stop-color="#2dd4bf"/>
     </linearGradient>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"/>
+    <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
     </pattern>
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="24"/>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.35"/>
     </filter>
   </defs>
 
-  <rect width="1200" height="360" rx="24" fill="url(#background)"/>
-  <rect width="1200" height="360" rx="24" fill="url(#grid)"/>
+  <rect width="1400" height="470" rx="28" fill="url(#bg)"/>
+  <rect width="1400" height="470" rx="28" fill="url(#grid)"/>
+  <ellipse cx="1080" cy="110" rx="310" ry="220" fill="url(#glowBlue)"/>
+  <ellipse cx="1190" cy="390" rx="360" ry="220" fill="url(#glowGreen)"/>
+  <rect x="1" y="1" width="1398" height="468" rx="27" fill="none" stroke="#ffffff" stroke-opacity="0.10"/>
 
-  <circle cx="1005" cy="85" r="130" fill="#38bdf8" fill-opacity="0.10" filter="url(#softGlow)"/>
-  <circle cx="1090" cy="260" r="150" fill="#2dd4bf" fill-opacity="0.08" filter="url(#softGlow)"/>
-
-  <g transform="translate(70 70)">
-    <rect x="0" y="0" width="82" height="8" rx="4" fill="url(#accent)"/>
-    <text x="0" y="70" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-1.5">Florian Stuettgen</text>
-    <text x="0" y="116" fill="#a7f3d0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23" font-weight="600" letter-spacing="1.4">PROJECT CONTROLS × DATA SYSTEMS × FIELD EXECUTION</text>
-    <text x="0" y="166" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22">Building traceable decision systems for complex capital programs.</text>
+  <g transform="translate(72 62)">
+    <text x="0" y="0" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">FLORIAN STUETTGEN</text>
+    <text x="0" y="70" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="54" font-weight="750" letter-spacing="-1.6">I make project data</text>
+    <text x="0" y="130" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="54" font-weight="750" letter-spacing="-1.6">defensible.</text>
+    <rect x="0" y="158" width="430" height="6" rx="3" fill="url(#accent)"/>
+    <text x="0" y="207" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20">Project controls, data engineering, and field-built judgment</text>
+    <text x="0" y="239" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">for capital programs where bad data becomes expensive decisions.</text>
   </g>
 
-  <g transform="translate(865 92)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M45 18 H178 V72 H235" stroke="#38bdf8" stroke-opacity="0.78" stroke-width="3"/>
-    <path d="M18 134 H110 V204 H242" stroke="#2dd4bf" stroke-opacity="0.78" stroke-width="3"/>
-    <path d="M82 78 V134" stroke="#94a3b8" stroke-opacity="0.55" stroke-width="3"/>
-    <circle cx="45" cy="18" r="9" fill="#38bdf8" stroke="none"/>
-    <circle cx="178" cy="72" r="9" fill="#7dd3fc" stroke="none"/>
-    <circle cx="235" cy="72" r="9" fill="#2dd4bf" stroke="none"/>
-    <circle cx="18" cy="134" r="9" fill="#2dd4bf" stroke="none"/>
-    <circle cx="110" cy="204" r="9" fill="#5eead4" stroke="none"/>
-    <circle cx="242" cy="204" r="9" fill="#38bdf8" stroke="none"/>
-    <circle cx="82" cy="106" r="8" fill="#cbd5e1" stroke="none"/>
+  <g transform="translate(775 56)" filter="url(#shadow)">
+    <rect x="0" y="0" width="555" height="302" rx="22" fill="#0b1727" fill-opacity="0.96" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="28" y="38" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2">DECISION ASSURANCE PIPELINE</text>
+
+    <g transform="translate(28 66)">
+      <rect x="0" y="0" width="112" height="56" rx="12" fill="#10253a" stroke="#38bdf8" stroke-opacity="0.55"/>
+      <text x="56" y="24" text-anchor="middle" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">FIELD + P6</text>
+      <text x="56" y="42" text-anchor="middle" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11">COST / RISK</text>
+
+      <path d="M112 28H145" stroke="#38bdf8" stroke-width="3"/>
+      <circle cx="145" cy="28" r="4" fill="#38bdf8"/>
+
+      <rect x="156" y="0" width="112" height="56" rx="12" fill="#122238" stroke="#60a5fa" stroke-opacity="0.55"/>
+      <text x="212" y="24" text-anchor="middle" fill="#93c5fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">DATA MODEL</text>
+      <text x="212" y="42" text-anchor="middle" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11">RULES / LINEAGE</text>
+
+      <path d="M268 28H301" stroke="#60a5fa" stroke-width="3"/>
+      <circle cx="301" cy="28" r="4" fill="#60a5fa"/>
+
+      <rect x="312" y="0" width="112" height="56" rx="12" fill="#112b31" stroke="#2dd4bf" stroke-opacity="0.58"/>
+      <text x="368" y="24" text-anchor="middle" fill="#5eead4" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">ASSURANCE</text>
+      <text x="368" y="42" text-anchor="middle" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11">TEST / RECONCILE</text>
+
+      <path d="M424 28H457" stroke="#2dd4bf" stroke-width="3"/>
+      <circle cx="457" cy="28" r="4" fill="#2dd4bf"/>
+
+      <rect x="468" y="0" width="59" height="56" rx="12" fill="#123029" stroke="#34d399" stroke-opacity="0.62"/>
+      <text x="497.5" y="24" text-anchor="middle" fill="#6ee7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">DECIDE</text>
+      <text x="497.5" y="42" text-anchor="middle" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="10">ACT</text>
+    </g>
+
+    <line x1="28" y1="151" x2="527" y2="151" stroke="#ffffff" stroke-opacity="0.08"/>
+
+    <g transform="translate(28 176)">
+      <text x="0" y="0" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">THE CAREER ARC</text>
+      <text x="0" y="31" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Field execution</text>
+      <text x="128" y="31" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">→</text>
+      <text x="158" y="31" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Project controls</text>
+      <text x="300" y="31" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">→</text>
+      <text x="330" y="31" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Data systems</text>
+      <text x="0" y="65" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">Journeyman Steamfitter-Pipefitter</text>
+      <text x="244" y="65" fill="#5eead4" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">Dual MBA</text>
+      <text x="335" y="65" fill="#6ee7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">MIT Applied Data Science</text>
+    </g>
   </g>
 
-  <rect x="1" y="1" width="1198" height="358" rx="23" fill="none" stroke="#ffffff" stroke-opacity="0.10"/>
+  <g transform="translate(72 399)">
+    <text x="0" y="0" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">OPERATING DOMAINS</text>
+    <text x="0" y="29" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">P6 · SQL · Python · Power BI · EVM · Forecasting · Change · Risk · Automation · Auditability</text>
+  </g>
 </svg>

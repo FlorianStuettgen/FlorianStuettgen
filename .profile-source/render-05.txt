@@ -1,0 +1,53 @@
+        b.append(text(x + 64, 205, value, 23, cls="title mono", anchor="middle", weight=950, fill=color))
+        b.append(text(x + 64, 236, label, 9, cls="muted mono", anchor="middle", weight=800))
+        b.append(text(x + 64, 260, sub, 10, cls="body mono", anchor="middle", weight=700))
+    b.append(f'<path d="M172 225 H184" stroke="{theme.cyan}" stroke-width="2.5" marker-end="url(#arrow)"/>')
+    b.append(text(178, 199, "+$11M", 9, cls="mono", anchor="middle", weight=850, fill=theme.cyan))
+    b.append(f'<path d="M318 225 H330" stroke="{theme.green}" stroke-width="2.5" marker-end="url(#arrow)"/>')
+    b.append(text(324, 199, "+$65M", 9, cls="mono", anchor="middle", weight=850, fill=theme.green))
+
+    b.append(rounded_rect(488, 166, 144, 118, r=16, cls="panel2"))
+    b.append(text(560, 205, "$76M", 27, cls="title mono", anchor="middle", weight=950, fill=theme.red))
+    b.append(text(560, 232, "HIDDEN EXPOSURE", 9, cls="muted mono", anchor="middle", weight=800))
+    b.append(text(560, 256, "3 BLOCKERS", 12, cls="title mono", anchor="middle", weight=850, fill=theme.amber))
+    b.append(text(560, 275, "29 CONTROLS", 9, cls="muted mono", anchor="middle", weight=750))
+
+    b.append(text(44, 326, "SOURCE FILES", 10, cls="muted mono", weight=800))
+    b.append(text(215, 326, "EXECUTABLE CONTROLS", 10, cls="muted mono", weight=800))
+    b.append(text(455, 326, "DECISION RECORD", 10, cls="muted mono", weight=800))
+    b.append(f'<path d="M56 349 H586" class="flow" marker-end="url(#arrow)" opacity="0.58"/>')
+    for cx, label in [(66, "P6 XER"), (146, "COST CSV"), (271, "EQUATIONS"), (380, "EXCEPTIONS"), (512, "GO / NO-GO")]:
+        b.append(f'<circle cx="{cx}" cy="349" r="8" fill="{theme.cyan if cx < 400 else theme.green}"/>')
+        b.append(text(cx, 377, label, 9, cls="muted mono", anchor="middle", weight=750))
+    b.append(text(44, 428, "RUN DEMO  /  TRACE SOURCE > EQUATION > IMPACT  /  INSPECT TESTS", 10, cls="mono", weight=850, fill=theme.cyan))
+    return svg_shell(theme, w, h, "EQ-Proof Control Room project card", "Project card showing reported, defensible, and risk-adjusted forecast positions and evidence flow.", "\n".join(b))
+
+
+def generate_soc_card(theme: Theme) -> str:
+    w, h = 680, 470
+    b: list[str] = []
+    b.append(rounded_rect(18, 18, 644, 434, r=24, cls="panel", filter_="url(#shadow)"))
+    b.append(text(44, 58, "FLAGSHIP 02 / EVIDENCE ENGINEERING", 13, cls="label mono", weight=850, fill=theme.green))
+    b.append(text(44, 101, "SOC_REPLAY", 29, cls="title sans", weight=900))
+    b.append(text(44, 132, "Contract-complete defensive telemetry engine", 16, cls="body sans", weight=650))
+    b.append(pill(500, 42, "v3.1", theme, color=theme.green, width=104))
+
+    stages = [
+        ("LOAD", "freeze + validate"),
+        ("COMPILE", "plans + fingerprints"),
+        ("INDEX", "safe intersections"),
+        ("EVALUATE", "positive + zero traces"),
+        ("VERIFY", "exact contracts"),
+    ]
+    sx = 43
+    y = 178
+    for i, (name, sub) in enumerate(stages):
+        color = theme.cyan if i < 2 else theme.green if i < 4 else theme.amber
+        b.append(rounded_rect(sx, y, 110, 84, r=14, cls="panel2"))
+        b.append(text(sx + 55, y + 31, name, 13, cls="title mono", anchor="middle", weight=900, fill=color))
+        b.append(text(sx + 55, y + 56, sub, 9, cls="muted mono", anchor="middle", weight=700))
+        if i < len(stages) - 1:
+            b.append(f'<path d="M{sx + 110} {y + 42} H{sx + 126}" stroke="{theme.cyan}" stroke-width="2.4" marker-end="url(#arrow)"/>')
+        sx += 126
+
+    # ledger chain

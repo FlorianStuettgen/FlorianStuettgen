@@ -1,0 +1,51 @@
+    b.append(f'<circle cx="{x0 + 271}" cy="198" r="34" fill="none" stroke="{theme.cyan}" stroke-width="7" stroke-dasharray="56 20" opacity="0.85">'
+             f'<animateTransform attributeName="transform" type="rotate" from="0 {x0 + 271} 198" to="360 {x0 + 271} 198" dur="8s" repeatCount="indefinite"/></circle>')
+    b.append(f'<circle cx="{x0 + 271}" cy="198" r="16" fill="{theme.green}" fill-opacity="0.18" stroke="{theme.green}"/>')
+    b.append(text(x0 + 271, 258, "ASSURANCE", 14, cls="title mono", anchor="middle", weight=850))
+    b.append(text(x0 + 271, 280, "RULES • LINEAGE", 11, cls="muted mono", anchor="middle", weight=700))
+    b.append(f'<path d="M{x0 + 346} 229 H{x0 + 397}" class="flow" marker-end="url(#arrow)"/>')
+    b.append(rounded_rect(x0 + 400, 168, 72, 122, r=18, cls="panel2"))
+    b.append(text(x0 + 436, 208, "GO", 24, cls="title mono", anchor="middle", weight=900, fill=theme.green))
+    b.append(text(x0 + 436, 238, "NO-GO", 11, cls="muted mono", anchor="middle", weight=700))
+    b.append(text(x0 + 436, 263, "WHY", 11, cls="muted mono", anchor="middle", weight=700))
+
+    b.append(rounded_rect(x0 + 22, 384, 456, 119, r=18, cls="panel2"))
+    b.append(text(x0 + 46, 418, "SYSTEM STATE", 13, cls="label mono", weight=800))
+    b.append(f'<circle cx="{x0 + 50}" cy="454" r="7" fill="{theme.green}" class="pulse" filter="url(#glow)"/>')
+    b.append(text(x0 + 70, 460, "TRACEABLE, AUDIT-READY DECISION SYSTEMS", 12, cls="title mono", weight=800))
+    b.append(text(x0 + 46, 487, "INPUT / CONTROL / EXCEPTION / DECISION / EVIDENCE", 11, cls="muted mono", weight=700))
+
+    b.append(text(70, 575, "PROJECT CONTROLS DISCIPLINE  /  DATA-ENGINEERING RIGOR  /  FIELD-BUILT JUDGMENT", 13, cls="mono", weight=800, fill=theme.faint))
+    return svg_shell(theme, w, h, "Florian Stuettgen project controls operating system", "Animated command-center hero connecting field reality, controls assurance, and executive decisions.", "\n".join(b))
+
+
+def generate_audience_card(theme: Theme, key: str) -> str:
+    configs = {
+        "recruiter": {
+            "num": "01", "title": "RECRUITER", "accent": theme.cyan,
+            "headline": "60-second fit check",
+            "lines": ["Role identity + career arc", "Capital-program context", "Credentials + location"],
+            "footer": "OPEN 60-SECOND PROFILE",
+            "icon": "M28 27a12 12 0 1 0 24 0 12 12 0 1 0-24 0Zm-7 40c0-12 10-21 19-21s19 9 19 21",
+        },
+        "manager": {
+            "num": "02", "title": "HIRING MANAGER", "accent": theme.amber,
+            "headline": "What I can own",
+            "lines": ["Broken reporting chains", "Forecast + controls assurance", "Data systems around decisions"],
+            "footer": "VIEW OPERATING VALUE",
+            "icon": "M18 60V29l18-12 18 12v31M11 60h50M31 60V43h10v17",
+        },
+        "engineer": {
+            "num": "03", "title": "TECHNICAL REVIEWER", "accent": theme.green,
+            "headline": "Inspect the proof",
+            "lines": ["Architecture + boundaries", "Tests + CI + contracts", "Runnable evidence"],
+            "footer": "OPEN TECHNICAL INDEX",
+            "icon": "M14 23h48v38H14zM14 34h48M25 47l-5 5 5 5M34 57h13",
+        },
+    }
+    c = configs[key]
+    w, h = 430, 250
+    b: list[str] = []
+    b.append(rounded_rect(16, 16, 398, 218, r=22, cls="panel", filter_="url(#shadow)"))
+    b.append(f'<rect x="16" y="16" width="398" height="5" rx="2.5" fill="{c["accent"]}"/>')
+    b.append(text(38, 53, c["num"], 14, cls="mono", weight=850, fill=c["accent"]))

@@ -67,7 +67,8 @@ function proseParagraphs(value) {
 
 const markdownHeadings = [...markdown.matchAll(/^(#{1,6})\s+(.+)$/gmu)];
 const htmlHeadings = [...markdown.matchAll(/<h([1-6])\b[^>]*>[\s\S]*?<\/h\1>/giu)];
-const headingCount = markdownHeadings.length + htmlHeadings.length;
+const setextHeadings = [...markdown.matchAll(/^(?!\s*$)(?!#{1,6}\s)(.+)\r?\n\s*(?:=+|-+)\s*$/gmu)];
+const headingCount = markdownHeadings.length + htmlHeadings.length + setextHeadings.length;
 const h2Headings = markdownHeadings.filter((match) => match[1].length === 2).map((match) => match[2].trim());
 const h3Headings = markdownHeadings.filter((match) => match[1].length === 3).map((match) => match[2].trim());
 
@@ -76,6 +77,9 @@ if (!/<h1\s+align=["']center["']>Evidence-first software for high-stakes operati
 }
 if (htmlHeadings.length !== 1 || htmlHeadings[0]?.[1] !== "1") {
   fail("the approved centered H1 is the only permitted HTML heading");
+}
+if (markdownHeadings.some((match) => match[1].length === 1) || setextHeadings.length > 0 || headingCount !== 8) {
+  fail(`expected exactly eight approved headings with no Markdown H1 or Setext variants; found ${headingCount}`);
 }
 if (markdownHeadings.some((match) => match[1].length > 3) || htmlHeadings.some((match) => Number(match[1]) > 3)) {
   fail("headings may not be deeper than level three");
@@ -105,6 +109,11 @@ const expectedOpeningHtmlTags = ["h1", "h1", "p", "strong", "strong", "p", "p", 
 if (openingHtmlTags.join("|") !== expectedOpeningHtmlTags.join("|")) {
   fail("the centered opening may contain only the approved headline, technology line, and three-link HTML structure");
 }
+if (count(/<p\s+align=["']center["']>/giu, opening) !== 2) {
+  fail("the technology line and three-link opening must both remain centered");
+}
+const bodyHtmlTagCount = count(/<\/?[a-z][a-z0-9]*\b[^>]*>/giu, markdown.slice(markdown.indexOf("## Working in public")));
+if (bodyHtmlTagCount > 0) fail(`HTML is forbidden outside the approved centered opening; found ${bodyHtmlTagCount} tags`);
 
 const thesisParagraphs = proseParagraphs(opening);
 if (thesisParagraphs.length !== 1) fail(`opening must contain exactly one thesis paragraph; found ${thesisParagraphs.length}`);
@@ -158,13 +167,14 @@ if (!/planned commercial successor to EQ-Proof/iu.test(closeParagraph) || !/priv
 if (!/private, local-first SQL comprehension and change-impact product/iu.test(queryParagraph) || !/under development/iu.test(queryParagraph)) {
   fail("Query Cartographer must be a private local-first product under development");
 }
-const unavailableClaim = /\b(?:is|are|now|currently)\s+(?:public|live|released|available|deployed|publicly accessible)\b|\b(?:deployed|publicly accessible|available now|live demo|public demo|public preview)\b|\b(?:try|open|launch)\s+(?:it|the product|the demo)\b/iu;
+const publicationGate = "Public product demonstrations will follow only after their security, release, and publication gates pass.";
+const unavailableClaim = /\b(?:available|deployed|live|public|publicly|released|shipping|launched|demo|preview|production[- ]ready)\b|\bopen to (?:the )?public\b/iu;
 if (unavailableClaim.test(closeSection)) fail("Schrödinger’s Close is presented as currently available");
-if (unavailableClaim.test(querySection)) fail("Query Cartographer is presented as currently available");
-if (!/Public product demonstrations will follow only after their security, release, and publication gates pass\./u.test(building)) {
+if (unavailableClaim.test(querySection.replace(publicationGate, ""))) fail("Query Cartographer is presented as currently available");
+if (!building.includes(publicationGate)) {
   fail("missing the shared future-publication gate statement");
 }
-if (queryParagraphs[1] !== "Public product demonstrations will follow only after their security, release, and publication gates pass.") {
+if (queryParagraphs[1] !== publicationGate) {
   fail("the Query Cartographer section must end with the exact shared publication-gate statement");
 }
 

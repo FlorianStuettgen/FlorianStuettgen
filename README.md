@@ -20,7 +20,7 @@ EQ-Proof is my current public project-controls application and the working prede
 
 ### SOC_Replay
 
-SOC_Replay is deterministic systems-engineering proof: an offline Python pipeline built around typed rules and contracts. Its indexed execution is checked against a full-scan reference path, making disagreements explicit. Each run emits a portable, verifiable evidence bundle for independent inspection.
+SOC_Replay is my public deterministic systems-engineering proof: an offline Python pipeline built around typed rules and contracts. Its indexed execution is checked against a full-scan reference path, making disagreements explicit. Each run emits a portable, verifiable evidence bundle for independent inspection.
 
 [Reference result](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/reference/network-scan/report.md) · [Engineering review](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md) · [Immutable v3.3.0 release](https://github.com/FlorianStuettgen/SOC_Replay/releases/tag/v3.3.0)
 

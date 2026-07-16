@@ -7,6 +7,8 @@ const markdown = readFileSync(resolve(root, "README.md"), "utf8");
 const failures = [];
 const fail = (message) => failures.push(message);
 const count = (pattern, value = markdown) => [...value.matchAll(pattern)].length;
+const approvedHeadlinePattern = /^<h1\s+align=["']center["']>Evidence-first software for high-stakes operations<\/h1>$/iu;
+const approvedTechnologyPattern = /^<p\s+align=["']center["']><strong>TypeScript \u00b7 React \u00b7 Python \u00b7 SQL<\/strong><\/p>$/u;
 
 function proseWordCount(value, { excludeLinkText = false } = {}) {
   let text = value
@@ -58,21 +60,21 @@ function proseParagraphs(value) {
     .filter(
       (block) =>
         block &&
-        !/^#{1,6}\s/u.test(block) &&
-        !/^<h1\s+align=["']center["']>Evidence-first software for high-stakes operations<\/h1>$/iu.test(block) &&
-        !/^<p\s+align=["']center["']><strong>TypeScript[^<]*React[^<]*Python[^<]*SQL<\/strong><\/p>$/iu.test(block) &&
+        !/^\s{0,3}#{1,6}\s/u.test(block) &&
+        !approvedHeadlinePattern.test(block) &&
+        !approvedTechnologyPattern.test(block) &&
         proseWordCount(block, { excludeLinkText: true }) > 0,
     );
 }
 
-const markdownHeadings = [...markdown.matchAll(/^(#{1,6})\s+(.+)$/gmu)];
+const markdownHeadings = [...markdown.matchAll(/^\s{0,3}(#{1,6})\s+(.+)$/gmu)];
 const htmlHeadings = [...markdown.matchAll(/<h([1-6])\b[^>]*>[\s\S]*?<\/h\1>/giu)];
 const setextHeadings = [...markdown.matchAll(/^(?!\s*$)(?!#{1,6}\s)(.+)\r?\n\s*(?:=+|-+)\s*$/gmu)];
 const headingCount = markdownHeadings.length + htmlHeadings.length + setextHeadings.length;
 const h2Headings = markdownHeadings.filter((match) => match[1].length === 2).map((match) => match[2].trim());
 const h3Headings = markdownHeadings.filter((match) => match[1].length === 3).map((match) => match[2].trim());
 
-if (!/<h1\s+align=["']center["']>Evidence-first software for high-stakes operations<\/h1>/iu.test(markdown)) {
+if (!approvedHeadlinePattern.test(markdown.split(/\r?\n\s*\r?\n/u)[0]?.trim() ?? "")) {
   fail("missing the approved centered evidence-first headline");
 }
 if (htmlHeadings.length !== 1 || htmlHeadings[0]?.[1] !== "1") {
@@ -92,6 +94,9 @@ if (h3Headings.join("|") !== "EQ-Proof|SOC_Replay|Schrödinger’s Close|Query C
 }
 
 const opening = markdown.slice(0, markdown.indexOf("## Working in public"));
+if (!opening.split(/\r?\n\s*\r?\n/u).some((block) => approvedTechnologyPattern.test(block.trim()))) {
+  fail("the approved centered technology line is missing or contains extra prose");
+}
 for (const technology of ["TypeScript", "React", "Python", "SQL"]) {
   if (!opening.includes(technology)) fail(`technology line is missing ${technology}`);
 }
@@ -114,6 +119,11 @@ if (count(/<p\s+align=["']center["']>/giu, opening) !== 2) {
 }
 const bodyHtmlTagCount = count(/<\/?[a-z][a-z0-9]*\b[^>]*>/giu, markdown.slice(markdown.indexOf("## Working in public")));
 if (bodyHtmlTagCount > 0) fail(`HTML is forbidden outside the approved centered opening; found ${bodyHtmlTagCount} tags`);
+const markdownContainerCount = count(/^\s{0,3}(?:>|(?:[-+*]|\d+[.)])\s+)/gmu);
+const fencedCodeCount = count(/^\s{0,3}(?:`{3,}|~{3,})/gmu);
+if (markdownContainerCount > 0 || fencedCodeCount > 0) {
+  fail("blockquotes, lists, and fenced code are outside the approved profile grammar");
+}
 
 const thesisParagraphs = proseParagraphs(opening);
 if (thesisParagraphs.length !== 1) fail(`opening must contain exactly one thesis paragraph; found ${thesisParagraphs.length}`);
@@ -147,6 +157,9 @@ for (const amount of ["$407M", "$418M", "$11M"]) {
 for (const claim of ["offline Python pipeline", "typed rules", "contracts", "indexed execution", "full-scan reference path", "verifiable evidence bundle"]) {
   if (!socParagraph.includes(claim)) fail(`SOC_Replay description is missing: ${claim}`);
 }
+if (!/public deterministic systems-engineering proof/iu.test(socParagraph)) {
+  fail("SOC_Replay must be identified as current public systems-engineering proof");
+}
 
 const building = between("## Building next", "## About");
 const closeSection = building.slice(building.indexOf("### Schrödinger’s Close") + "### Schrödinger’s Close".length, building.indexOf("### Query Cartographer"));
@@ -168,7 +181,7 @@ if (!/private, local-first SQL comprehension and change-impact product/iu.test(q
   fail("Query Cartographer must be a private local-first product under development");
 }
 const publicationGate = "Public product demonstrations will follow only after their security, release, and publication gates pass.";
-const unavailableClaim = /\b(?:available|deployed|live|public|publicly|released|shipping|launched|demo|preview|production[- ]ready)\b|\bopen to (?:the )?public\b/iu;
+const unavailableClaim = /\b(?:available|customers?|deployed|live|operational|production|public|publicly|released?|shipping|launched?|demo(?:nstration)?|preview|today|users?)\b|\b(?:in use|used by|open to (?:the )?public)\b/iu;
 if (unavailableClaim.test(closeSection)) fail("Schrödinger’s Close is presented as currently available");
 if (unavailableClaim.test(querySection.replace(publicationGate, ""))) fail("Query Cartographer is presented as currently available");
 if (!building.includes(publicationGate)) {
@@ -203,11 +216,22 @@ const autolinkCount = count(/<(?:https?:\/\/|mailto:)[^ >]+>/giu);
 const markupWithoutDeclaredLinks = markdown
   .replace(/<a\b[^>]*>[\s\S]*?<\/a>/giu, " ")
   .replace(/!?\[[^\]]+\]\([^)]*\)/gu, " ");
+const unmatchedSquareBracketCount = count(/[\[\]]/gu, markupWithoutDeclaredLinks);
 const bareUrlCount = count(/https?:\/\/[^\s<>"')]+/giu, markupWithoutDeclaredLinks);
 const bareWwwUrlCount = count(/\bwww\.[^\s<>"')]+/giu, markupWithoutDeclaredLinks);
 const referenceImageCount = count(/!\[[^\]]+\]\s*\[[^\]]*\]/gu);
 const imageCount = count(/!\[[^\]]*\]\([^)]*\)/gu) + referenceImageCount + count(/<img\b/giu);
 const badgeCount = count(/(?:shields\.io|badge\.svg|github-readme-stats|streak-stats|github-profile-trophy)/giu);
+const approvedLinkTargets = new Set([
+  "https://florianstuettgen.github.io/EQ-Proof/",
+  "https://github.com/FlorianStuettgen/SOC_Replay/blob/main/reference/network-scan/report.md",
+  "https://www.linkedin.com/in/florian-stuettgen/",
+  "https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md",
+  "https://github.com/FlorianStuettgen/EQ-Proof/releases/tag/v1.5.0",
+  "https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md",
+  "https://github.com/FlorianStuettgen/SOC_Replay/releases/tag/v3.3.0",
+]);
+const unapprovedLinkCount = links.filter((link) => !approvedLinkTargets.has(link.target)).length;
 const approvedPublicRepositories = new Set(["eq-proof", "soc_replay"]);
 const resolvedLinkTargets = links.map((link) => {
   try {
@@ -220,7 +244,7 @@ const nonAbsoluteHttpsLinkCount = links.filter((link) => !/^https:\/\/[^\s]+$/iu
 const ownerRepositoryUrls = resolvedLinkTargets.filter(
   (target) =>
     target &&
-    target.hostname.toLowerCase() === "github.com" &&
+    target.hostname.toLowerCase().replace(/^www\./u, "") === "github.com" &&
     target.pathname.split("/").filter(Boolean)[0]?.toLowerCase() === "florianstuettgen" &&
     target.pathname.split("/").filter(Boolean).length >= 2,
 );
@@ -229,6 +253,8 @@ const privateUrlCount = ownerRepositoryUrls.filter((target) => {
   return !approvedPublicRepositories.has(repository);
 }).length;
 const emailAddressCount = count(/mailto:|\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu);
+const phoneNumberCount = count(/\+?\d(?:[\s().-]*\d){7,}/gu);
+const alternateContactCount = count(/\b(?:email|phone|telephone|whatsapp|signal|telegram|discord|mastodon|bluesky|twitter|text me|call me|dm me)\b|(?:^|\s)@[A-Z0-9_-]+/gimu);
 const wordCount = proseWordCount(markdown);
 
 if (wordCount < 300 || wordCount > 425) fail(`README must contain 300–425 prose words; found ${wordCount}`);
@@ -236,12 +262,15 @@ if (wordCount > 450) fail(`README exceeds the 450-word hard safety ceiling; foun
 if (links.length > 10) fail(`README may contain at most ten links; found ${links.length}`);
 if (tableCount > 0) fail(`tables are forbidden; found ${tableCount}`);
 if (referenceUseCount > 0 || referenceDefinitionCount > 0) fail("reference-style links and images are forbidden; use explicit inline links");
+if (unmatchedSquareBracketCount > 0) fail("nested, escaped, or unparsed square-bracket Markdown is forbidden");
 if (autolinkCount > 0 || bareUrlCount > 0 || bareWwwUrlCount > 0) fail("autolinks and bare URLs are forbidden; use explicit labeled links");
 if (nonAbsoluteHttpsLinkCount > 0) fail(`all links must use absolute HTTPS targets; found ${nonAbsoluteHttpsLinkCount}`);
+if (unapprovedLinkCount > 0) fail(`only the approved public proof and LinkedIn targets are permitted; found ${unapprovedLinkCount} other links`);
 if (badgeCount > 0) fail(`badges are forbidden; found ${badgeCount}`);
 if (imageCount > 0) fail(`images are forbidden; found ${imageCount}`);
 if (privateUrlCount > 0) fail(`private repository URLs are forbidden; found ${privateUrlCount}`);
 if (emailAddressCount > 0) fail(`email addresses are forbidden; found ${emailAddressCount}`);
+if (phoneNumberCount > 0 || alternateContactCount > 0) fail("LinkedIn must remain the only public contact route");
 if (/Real Estate Decision Desk/iu.test(markdown)) fail("Real Estate Decision Desk must not appear in the profile");
 
 for (const [label, paragraph] of [
@@ -268,9 +297,9 @@ for (const requiredTarget of [
 
 for (const paragraph of markdown.split(/\r?\n\s*\r?\n/u).map((block) => block.trim()).filter(Boolean)) {
   if (
-    /^#{1,6}\s/u.test(paragraph) ||
-    /^<h1\s+align=["']center["']>Evidence-first software for high-stakes operations<\/h1>$/iu.test(paragraph) ||
-    /^<p\s+align=["']center["']><strong>TypeScript[^<]*React[^<]*Python[^<]*SQL<\/strong><\/p>$/iu.test(paragraph)
+    /^\s{0,3}#{1,6}\s/u.test(paragraph) ||
+    approvedHeadlinePattern.test(paragraph) ||
+    approvedTechnologyPattern.test(paragraph)
   ) continue;
   const words = proseWordCount(paragraph);
   if (words > 70) fail(`paragraph exceeds the density guard of 70 prose words; found ${words}: ${paragraph.slice(0, 60)}…`);

@@ -1,10 +1,12 @@
 # Florian Stuettgen
 
-**Data Systems Engineer for Capital Projects**
+**I build evidence-first software for high-stakes operations.**
 
 **Start with [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof)** — a working, local-first project-controls assurance system with a functional browser workbench and release-backed verification.
 
 > I build evidence-bound project controls systems that turn messy schedules, forecasts, workbooks, and SQL into defensible decisions.
+
+Project-controls assurance and deterministic security validation—built with Python, SQL, typed data contracts, and reproducible evidence.
 
 [Open the live control room](https://florianstuettgen.github.io/EQ-Proof/) · [Review the worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [Inspect the v1.5.0 release](https://github.com/FlorianStuettgen/EQ-Proof/releases/tag/v1.5.0) · [LinkedIn](https://www.linkedin.com/in/florian-stuettgen/)
 
@@ -28,13 +30,7 @@ The [v3.3.0 release record](https://github.com/FlorianStuettgen/SOC_Replay/relea
 
 [Inspect the reference result](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/reference/network-scan/report.md) · [Review implementation state](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/14-Implementation-State.md) · [Read the engineering review](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md)
 
-### Real Estate Decision Desk
-
-The applied decision-support case study: mandatory gates, explicit criteria, cost and risk assumptions, sensitivity analysis, and traceable rationale. Real Estate Decision Desk remains explicitly design-stage; its public repository documents the model and intended interaction rather than claiming a released application.
-
-[Review the documented model](https://github.com/FlorianStuettgen/real-estate-decision-desk)
-
-These repositories provide complementary evidence; they are not presented as direct technical dependencies or shared-code claims.
+These two repositories provide complementary public evidence; they are not presented as direct technical dependencies or shared-code claims. Private products remain outside this review path until each has an independently accessible publication surface.
 
 ## Engineering evidence
 

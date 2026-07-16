@@ -31,7 +31,7 @@ for (const heading of requiredSections) {
 const firstSection = markdown.slice(0, markdown.indexOf("## "));
 for (const required of [
   "# Florian Stuettgen",
-  "Data Systems Engineer for Capital Projects",
+  "I build evidence-first software for high-stakes operations.",
   "evidence-bound project controls systems",
   "EQ-Proof",
   "LinkedIn",
@@ -73,18 +73,21 @@ for (const [pattern, label] of [
 
 const portfolio = markdown.slice(markdown.indexOf("## Public portfolio"), markdown.indexOf("## Engineering evidence"));
 previousIndex = -1;
-for (const repository of ["### EQ-Proof", "### SOC_Replay", "### Real Estate Decision Desk"]) {
+for (const repository of ["### EQ-Proof", "### SOC_Replay"]) {
   const index = portfolio.indexOf(repository);
   if (index === -1) fail(`portfolio is missing: ${repository}`);
   else if (index <= previousIndex) fail(`portfolio order is wrong at: ${repository}`);
   previousIndex = index;
 }
 
-if (!/complementary evidence; they are not presented as direct technical dependencies/u.test(markdown)) {
+if (/^### Real Estate Decision Desk$/mu.test(portfolio)) {
+  fail("Real Estate Decision Desk must not occupy interim flagship placement");
+}
+if (!/complementary public evidence; they are not presented as direct technical dependencies/u.test(markdown)) {
   fail("missing no-direct-dependency qualification");
 }
-if (!/Real Estate Decision Desk remains explicitly design-stage/u.test(markdown)) {
-  fail("Real Estate Decision Desk must remain explicitly design-stage");
+if (!/Private products remain outside this review path until each has an independently accessible publication surface/u.test(markdown)) {
+  fail("missing inaccessible-product publication boundary");
 }
 if (!/expose no employers, clients, production datasets, internal systems, or proprietary methods/u.test(markdown)) {
   fail("missing confidentiality boundary");

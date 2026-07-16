@@ -14,13 +14,13 @@ I build software that keeps source evidence, transformations, assumptions, and u
 
 ### EQ-Proof
 
-EQ-Proof is my current public project-controls application and the working predecessor to Schrödinger’s Close. It runs locally in the browser, turning governed cost, schedule, change, and risk records into inspectable controls and findings. In its maintained synthetic case, a reported EAC of $407M reconstructs to $418M; the $11M contradiction stays visible and attached to the evidence that blocks the close.
+EQ-Proof is my current public project-controls application and the working predecessor to Schrödinger’s Close. Running locally in the browser, it demonstrates domain modeling and analytical-system engineering by reconstructing a reported $407M EAC to $418M while preserving the $11M contradiction.
 
 [Live application](https://florianstuettgen.github.io/EQ-Proof/) · [Worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [Immutable v1.5.0 release](https://github.com/FlorianStuettgen/EQ-Proof/releases/tag/v1.5.0)
 
 ### SOC_Replay
 
-SOC_Replay is deterministic systems-engineering proof: an offline Python pipeline built around typed rules, contracts, and reproducible execution. Its indexed path is continuously checked against a full-scan reference path, making correctness disagreements explicit instead of silently choosing one result. Each run emits a portable, verifiable evidence bundle with the rules, inputs, findings, and execution record needed for independent inspection.
+SOC_Replay is deterministic systems-engineering proof: an offline Python pipeline built around typed rules and contracts. Its indexed execution is checked against a full-scan reference path, making disagreements explicit. Each run emits a portable, verifiable evidence bundle for independent inspection.
 
 [Reference result](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/reference/network-scan/report.md) · [Engineering review](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md) · [Immutable v3.3.0 release](https://github.com/FlorianStuettgen/SOC_Replay/releases/tag/v3.3.0)
 
@@ -28,14 +28,14 @@ SOC_Replay is deterministic systems-engineering proof: an offline Python pipelin
 
 ### Schrödinger’s Close
 
-Schrödinger’s Close is the planned commercial successor to EQ-Proof and is currently under private development. It is intended to add persistent reporting periods, reconciliation, remediation, review, approval, signoff, and portfolio workflow around the assurance model—moving from a single analytical close toward an operated product.
+Schrödinger’s Close is the planned commercial successor to EQ-Proof and is currently under private development. It is intended to add persistent reporting periods, reconciliation, remediation, review, approval, signoff, and portfolio workflow—moving from a single analytical close toward an operated product.
 
 ### Query Cartographer
 
 Query Cartographer is a private, local-first SQL comprehension and change-impact product for inherited analytical models. It is under development and intended to become a commercial flagship, helping reviewers understand lineage, dependencies, and change consequences before editing complex reporting logic.
 
-Public demonstrations will follow after their security, release, and publication gates pass.
+Public product demonstrations will follow only after their security, release, and publication gates pass.
 
 ## About
 
-More than ten years in project delivery and controls, an MBA, and MIT Applied Data Science training shape how I build for high-stakes environments. I’m open to senior engineering roles, enterprise evaluation, and licensing or product discussions. For background or a direct conversation, connect with me on [LinkedIn](https://www.linkedin.com/in/florian-stuettgen/).
+More than ten years in project delivery and controls, an MBA, and MIT Applied Data Science training shape how I build for high-stakes environments. I’m open to senior engineering roles, enterprise evaluation, and licensing or product discussions. Connect with me on [LinkedIn](https://www.linkedin.com/in/florian-stuettgen/).

@@ -51,11 +51,11 @@ function between(start, end) {
   return markdown.slice(contentStart, endIndex === -1 ? markdown.length : endIndex);
 }
 
-function firstProseParagraph(value) {
+function proseParagraphs(value) {
   return value
     .split(/\r?\n\s*\r?\n/u)
     .map((block) => block.trim())
-    .find((block) => block && !/^#{1,6}\s/u.test(block) && !/^<[^>]+>/u.test(block) && proseWordCount(block, { excludeLinkText: true }) > 0) ?? "";
+    .filter((block) => block && !/^#{1,6}\s/u.test(block) && !/^<[^>]+>/u.test(block) && proseWordCount(block, { excludeLinkText: true }) > 0);
 }
 
 const markdownHeadings = [...markdown.matchAll(/^(#{1,6})\s+(.+)$/gmu)];
@@ -66,6 +66,9 @@ const h3Headings = markdownHeadings.filter((match) => match[1].length === 3).map
 
 if (!/<h1\s+align=["']center["']>Evidence-first software for high-stakes operations<\/h1>/iu.test(markdown)) {
   fail("missing the approved centered evidence-first headline");
+}
+if (htmlHeadings.length !== 1 || htmlHeadings[0]?.[1] !== "1") {
+  fail("the approved centered H1 is the only permitted HTML heading");
 }
 if (markdownHeadings.some((match) => match[1].length > 3) || htmlHeadings.some((match) => Number(match[1]) > 3)) {
   fail("headings may not be deeper than level three");
@@ -91,7 +94,9 @@ if (openingLinks.length !== 3 || openingLinks.some((link, index) => link.label !
   fail("centered opening must contain exactly the three approved links in order");
 }
 
-const thesis = firstProseParagraph(opening);
+const thesisParagraphs = proseParagraphs(opening);
+if (thesisParagraphs.length !== 1) fail(`opening must contain exactly one thesis paragraph; found ${thesisParagraphs.length}`);
+const thesis = thesisParagraphs[0] ?? "";
 const thesisWords = proseWordCount(thesis);
 if (thesisWords === 0 || thesisWords > 45) fail(`thesis must contain 1–45 prose words; found ${thesisWords}`);
 for (const term of ["source evidence", "transformations", "assumptions", "unresolved contradictions", "inspect", "reproduce"]) {
@@ -101,8 +106,12 @@ for (const term of ["source evidence", "transformations", "assumptions", "unreso
 const working = between("## Working in public", "## Building next");
 const eqSection = working.slice(working.indexOf("### EQ-Proof") + "### EQ-Proof".length, working.indexOf("### SOC_Replay"));
 const socSection = working.slice(working.indexOf("### SOC_Replay") + "### SOC_Replay".length);
-const eqParagraph = firstProseParagraph(eqSection);
-const socParagraph = firstProseParagraph(socSection);
+const eqParagraphs = proseParagraphs(eqSection);
+const socParagraphs = proseParagraphs(socSection);
+if (eqParagraphs.length !== 1) fail(`EQ-Proof must contain exactly one prose paragraph; found ${eqParagraphs.length}`);
+if (socParagraphs.length !== 1) fail(`SOC_Replay must contain exactly one prose paragraph; found ${socParagraphs.length}`);
+const eqParagraph = eqParagraphs[0] ?? "";
+const socParagraph = socParagraphs[0] ?? "";
 const eqWords = proseWordCount(eqParagraph, { excludeLinkText: true });
 const socWords = proseWordCount(socParagraph, { excludeLinkText: true });
 if (eqWords > 70) fail(`EQ-Proof description exceeds 70 prose words; found ${eqWords}`);
@@ -114,15 +123,19 @@ if (!/working predecessor to Schrödinger’s Close/iu.test(eqParagraph)) fail("
 for (const amount of ["$407M", "$418M", "$11M"]) {
   if (!eqParagraph.includes(amount)) fail(`EQ-Proof example is missing ${amount}`);
 }
-for (const claim of ["offline Python pipeline", "typed rules", "contracts", "indexed path", "full-scan reference path", "verifiable evidence bundle"]) {
+for (const claim of ["offline Python pipeline", "typed rules", "contracts", "indexed execution", "full-scan reference path", "verifiable evidence bundle"]) {
   if (!socParagraph.includes(claim)) fail(`SOC_Replay description is missing: ${claim}`);
 }
 
 const building = between("## Building next", "## About");
 const closeSection = building.slice(building.indexOf("### Schrödinger’s Close") + "### Schrödinger’s Close".length, building.indexOf("### Query Cartographer"));
 const querySection = building.slice(building.indexOf("### Query Cartographer") + "### Query Cartographer".length);
-const closeParagraph = firstProseParagraph(closeSection);
-const queryParagraph = firstProseParagraph(querySection);
+const closeParagraphs = proseParagraphs(closeSection);
+const queryParagraphs = proseParagraphs(querySection);
+if (closeParagraphs.length !== 1) fail(`Schrödinger’s Close must contain exactly one prose paragraph; found ${closeParagraphs.length}`);
+if (queryParagraphs.length !== 2) fail(`Query Cartographer must contain one product paragraph and one publication-gate paragraph; found ${queryParagraphs.length}`);
+const closeParagraph = closeParagraphs[0] ?? "";
+const queryParagraph = queryParagraphs[0] ?? "";
 const closeWords = proseWordCount(closeParagraph, { excludeLinkText: true });
 const queryWords = proseWordCount(queryParagraph, { excludeLinkText: true });
 if (closeWords > 45) fail(`Schrödinger’s Close statement exceeds 45 prose words; found ${closeWords}`);
@@ -133,15 +146,20 @@ if (!/planned commercial successor to EQ-Proof/iu.test(closeParagraph) || !/priv
 if (!/private, local-first SQL comprehension and change-impact product/iu.test(queryParagraph) || !/under development/iu.test(queryParagraph)) {
   fail("Query Cartographer must be a private local-first product under development");
 }
-const unavailableClaim = /\b(?:is|now)\s+(?:public|live|released|available)\b|\b(?:public|live)\s+(?:demo|application)\b|\btry\s+(?:it|the product)\b/iu;
-if (unavailableClaim.test(closeParagraph)) fail("Schrödinger’s Close is presented as currently available");
-if (unavailableClaim.test(queryParagraph)) fail("Query Cartographer is presented as currently available");
-if (!/Public demonstrations will follow after their security, release, and publication gates pass\./u.test(building)) {
+const unavailableClaim = /\b(?:is|are|now|currently)\s+(?:public|live|released|available|deployed|publicly accessible)\b|\b(?:deployed|publicly accessible|available now|live demo|public demo|public preview)\b|\b(?:try|open|launch)\s+(?:it|the product|the demo)\b/iu;
+if (unavailableClaim.test(closeSection)) fail("Schrödinger’s Close is presented as currently available");
+if (unavailableClaim.test(querySection)) fail("Query Cartographer is presented as currently available");
+if (!/Public product demonstrations will follow only after their security, release, and publication gates pass\./u.test(building)) {
   fail("missing the shared future-publication gate statement");
+}
+if (queryParagraphs[1] !== "Public product demonstrations will follow only after their security, release, and publication gates pass.") {
+  fail("the Query Cartographer section must end with the exact shared publication-gate statement");
 }
 
 const about = between("## About");
-const aboutParagraph = firstProseParagraph(about);
+const aboutParagraphs = proseParagraphs(about);
+if (aboutParagraphs.length !== 1) fail(`About must contain exactly one prose paragraph; found ${aboutParagraphs.length}`);
+const aboutParagraph = aboutParagraphs[0] ?? "";
 const aboutWords = proseWordCount(aboutParagraph, { excludeLinkText: true });
 if (aboutWords > 50) fail(`About paragraph exceeds 50 prose words; found ${aboutWords}`);
 for (const term of ["More than ten years", "MBA", "MIT Applied Data Science", "senior engineering roles", "enterprise evaluation", "licensing or product discussions", "LinkedIn"]) {
@@ -149,24 +167,52 @@ for (const term of ["More than ten years", "MBA", "MIT Applied Data Science", "s
 }
 
 const links = linksIn(markdown);
-const markdownTableSyntaxCount = count(/^\s*\|.*\|\s*$/gmu);
+const markdownLines = markdown.split(/\r?\n/u);
+const tableSeparator = /^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$/u;
+let markdownTableSyntaxCount = 0;
+for (let index = 0; index < markdownLines.length - 1; index += 1) {
+  if (markdownLines[index].includes("|") && tableSeparator.test(markdownLines[index + 1])) markdownTableSyntaxCount += 1;
+}
 const htmlTableCount = count(/<table\b/giu);
-const tableCount = (markdownTableSyntaxCount > 0 ? 1 : 0) + htmlTableCount;
-const imageCount = count(/!\[[^\]]*\]\([^)]*\)/gu) + count(/<img\b/giu);
+const tableCount = markdownTableSyntaxCount + htmlTableCount;
+const referenceUseCount = count(/!?\[[^\]]+\]\s*\[[^\]]*\]/gu);
+const referenceDefinitionCount = count(/^\s{0,3}\[[^\]]+\]:\s+\S+/gmu);
+const autolinkCount = count(/<(?:https?:\/\/|mailto:)[^ >]+>/giu);
+const markupWithoutDeclaredLinks = markdown
+  .replace(/<a\b[^>]*>[\s\S]*?<\/a>/giu, " ")
+  .replace(/!?\[[^\]]+\]\([^)]*\)/gu, " ");
+const bareUrlCount = count(/https?:\/\/[^\s<>"')]+/giu, markupWithoutDeclaredLinks);
+const referenceImageCount = count(/!\[[^\]]+\]\s*\[[^\]]*\]/gu);
+const imageCount = count(/!\[[^\]]*\]\([^)]*\)/gu) + referenceImageCount + count(/<img\b/giu);
 const badgeCount = count(/(?:shields\.io|badge\.svg|github-readme-stats|streak-stats|github-profile-trophy)/giu);
-const privateUrlCount = count(/https?:\/\/github\.com\/FlorianStuettgen\/(?:schroedingers-close|query-cartographer)(?:[\s/)#?]|$)/giu);
+const approvedPublicRepositories = new Set(["eq-proof", "soc_replay"]);
+const ownerRepositoryUrls = [...markdown.matchAll(/https?:\/\/github\.com\/FlorianStuettgen\/([A-Z0-9_.-]+)/giu)];
+const privateUrlCount = ownerRepositoryUrls.filter((match) => !approvedPublicRepositories.has(match[1].toLowerCase())).length;
 const emailAddressCount = count(/mailto:|\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu);
 const wordCount = proseWordCount(markdown);
 
 if (wordCount < 300 || wordCount > 425) fail(`README must contain 300–425 prose words; found ${wordCount}`);
 if (wordCount > 450) fail(`README exceeds the 450-word hard safety ceiling; found ${wordCount}`);
 if (links.length > 10) fail(`README may contain at most ten links; found ${links.length}`);
-if (tableCount > 0 || markdownTableSyntaxCount > 0) fail(`tables are forbidden; found ${tableCount}`);
+if (tableCount > 0) fail(`tables are forbidden; found ${tableCount}`);
+if (referenceUseCount > 0 || referenceDefinitionCount > 0) fail("reference-style links and images are forbidden; use explicit inline links");
+if (autolinkCount > 0 || bareUrlCount > 0) fail("autolinks and bare URLs are forbidden; use explicit labeled links");
 if (badgeCount > 0) fail(`badges are forbidden; found ${badgeCount}`);
 if (imageCount > 0) fail(`images are forbidden; found ${imageCount}`);
 if (privateUrlCount > 0) fail(`private repository URLs are forbidden; found ${privateUrlCount}`);
 if (emailAddressCount > 0) fail(`email addresses are forbidden; found ${emailAddressCount}`);
 if (/Real Estate Decision Desk/iu.test(markdown)) fail("Real Estate Decision Desk must not appear in the profile");
+
+for (const [label, paragraph] of [
+  ["thesis", thesis],
+  ["EQ-Proof", eqParagraph],
+  ["SOC_Replay", socParagraph],
+  ["Schrödinger’s Close", closeParagraph],
+  ["Query Cartographer", queryParagraph],
+  ["About", aboutParagraph],
+]) {
+  if (paragraph.length > 330) fail(`${label} paragraph exceeds the three-line density guard of 330 characters; found ${paragraph.length}`);
+}
 
 for (const forbiddenHeading of ["Engineering evidence", "Technical stack", "Capital-project context", "Professional context", "Background", "Contact"]) {
   if (new RegExp(`^## ${forbiddenHeading}$`, "mu").test(markdown)) fail(`obsolete section remains: ${forbiddenHeading}`);

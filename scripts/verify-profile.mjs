@@ -55,7 +55,14 @@ function proseParagraphs(value) {
   return value
     .split(/\r?\n\s*\r?\n/u)
     .map((block) => block.trim())
-    .filter((block) => block && !/^#{1,6}\s/u.test(block) && !/^<[^>]+>/u.test(block) && proseWordCount(block, { excludeLinkText: true }) > 0);
+    .filter(
+      (block) =>
+        block &&
+        !/^#{1,6}\s/u.test(block) &&
+        !/^<h1\s+align=["']center["']>Evidence-first software for high-stakes operations<\/h1>$/iu.test(block) &&
+        !/^<p\s+align=["']center["']><strong>TypeScript[^<]*React[^<]*Python[^<]*SQL<\/strong><\/p>$/iu.test(block) &&
+        proseWordCount(block, { excludeLinkText: true }) > 0,
+    );
 }
 
 const markdownHeadings = [...markdown.matchAll(/^(#{1,6})\s+(.+)$/gmu)];
@@ -92,6 +99,11 @@ const expectedOpeningLinks = [
 ];
 if (openingLinks.length !== 3 || openingLinks.some((link, index) => link.label !== expectedOpeningLinks[index][0] || link.target !== expectedOpeningLinks[index][1])) {
   fail("centered opening must contain exactly the three approved links in order");
+}
+const openingHtmlTags = [...opening.matchAll(/<\/?([a-z][a-z0-9]*)\b[^>]*>/giu)].map((match) => match[1].toLowerCase());
+const expectedOpeningHtmlTags = ["h1", "h1", "p", "strong", "strong", "p", "p", "a", "a", "a", "a", "a", "a", "p"];
+if (openingHtmlTags.join("|") !== expectedOpeningHtmlTags.join("|")) {
+  fail("the centered opening may contain only the approved headline, technology line, and three-link HTML structure");
 }
 
 const thesisParagraphs = proseParagraphs(opening);
@@ -182,12 +194,30 @@ const markupWithoutDeclaredLinks = markdown
   .replace(/<a\b[^>]*>[\s\S]*?<\/a>/giu, " ")
   .replace(/!?\[[^\]]+\]\([^)]*\)/gu, " ");
 const bareUrlCount = count(/https?:\/\/[^\s<>"')]+/giu, markupWithoutDeclaredLinks);
+const bareWwwUrlCount = count(/\bwww\.[^\s<>"')]+/giu, markupWithoutDeclaredLinks);
 const referenceImageCount = count(/!\[[^\]]+\]\s*\[[^\]]*\]/gu);
 const imageCount = count(/!\[[^\]]*\]\([^)]*\)/gu) + referenceImageCount + count(/<img\b/giu);
 const badgeCount = count(/(?:shields\.io|badge\.svg|github-readme-stats|streak-stats|github-profile-trophy)/giu);
 const approvedPublicRepositories = new Set(["eq-proof", "soc_replay"]);
-const ownerRepositoryUrls = [...markdown.matchAll(/https?:\/\/github\.com\/FlorianStuettgen\/([A-Z0-9_.-]+)/giu)];
-const privateUrlCount = ownerRepositoryUrls.filter((match) => !approvedPublicRepositories.has(match[1].toLowerCase())).length;
+const resolvedLinkTargets = links.map((link) => {
+  try {
+    return new URL(link.target, "https://github.com");
+  } catch {
+    return null;
+  }
+});
+const nonAbsoluteHttpsLinkCount = links.filter((link) => !/^https:\/\/[^\s]+$/iu.test(link.target)).length;
+const ownerRepositoryUrls = resolvedLinkTargets.filter(
+  (target) =>
+    target &&
+    target.hostname.toLowerCase() === "github.com" &&
+    target.pathname.split("/").filter(Boolean)[0]?.toLowerCase() === "florianstuettgen" &&
+    target.pathname.split("/").filter(Boolean).length >= 2,
+);
+const privateUrlCount = ownerRepositoryUrls.filter((target) => {
+  const repository = target.pathname.split("/").filter(Boolean)[1]?.toLowerCase() ?? "";
+  return !approvedPublicRepositories.has(repository);
+}).length;
 const emailAddressCount = count(/mailto:|\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu);
 const wordCount = proseWordCount(markdown);
 
@@ -196,7 +226,8 @@ if (wordCount > 450) fail(`README exceeds the 450-word hard safety ceiling; foun
 if (links.length > 10) fail(`README may contain at most ten links; found ${links.length}`);
 if (tableCount > 0) fail(`tables are forbidden; found ${tableCount}`);
 if (referenceUseCount > 0 || referenceDefinitionCount > 0) fail("reference-style links and images are forbidden; use explicit inline links");
-if (autolinkCount > 0 || bareUrlCount > 0) fail("autolinks and bare URLs are forbidden; use explicit labeled links");
+if (autolinkCount > 0 || bareUrlCount > 0 || bareWwwUrlCount > 0) fail("autolinks and bare URLs are forbidden; use explicit labeled links");
+if (nonAbsoluteHttpsLinkCount > 0) fail(`all links must use absolute HTTPS targets; found ${nonAbsoluteHttpsLinkCount}`);
 if (badgeCount > 0) fail(`badges are forbidden; found ${badgeCount}`);
 if (imageCount > 0) fail(`images are forbidden; found ${imageCount}`);
 if (privateUrlCount > 0) fail(`private repository URLs are forbidden; found ${privateUrlCount}`);
@@ -226,7 +257,11 @@ for (const requiredTarget of [
 }
 
 for (const paragraph of markdown.split(/\r?\n\s*\r?\n/u).map((block) => block.trim()).filter(Boolean)) {
-  if (/^#{1,6}\s/u.test(paragraph) || /^<[^>]+>/u.test(paragraph) || linksIn(paragraph).length > 0) continue;
+  if (
+    /^#{1,6}\s/u.test(paragraph) ||
+    /^<h1\s+align=["']center["']>Evidence-first software for high-stakes operations<\/h1>$/iu.test(paragraph) ||
+    /^<p\s+align=["']center["']><strong>TypeScript[^<]*React[^<]*Python[^<]*SQL<\/strong><\/p>$/iu.test(paragraph)
+  ) continue;
   const words = proseWordCount(paragraph);
   if (words > 70) fail(`paragraph exceeds the density guard of 70 prose words; found ${words}: ${paragraph.slice(0, 60)}…`);
 }

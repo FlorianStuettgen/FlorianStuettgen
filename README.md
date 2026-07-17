@@ -16,13 +16,13 @@ I build software that keeps source evidence, transformations, assumptions, and u
 
 EQ-Proof is my current public project-controls application and the working predecessor to Schrödinger’s Close. Running locally in the browser, it demonstrates domain modeling and analytical-system engineering by reconstructing a reported $407M EAC to $418M while preserving the $11M contradiction.
 
-[Live application](https://florianstuettgen.github.io/EQ-Proof/) · [Worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [Immutable v1.5.0 release](https://github.com/FlorianStuettgen/EQ-Proof/releases/tag/v1.5.0)
+[Live application](https://florianstuettgen.github.io/EQ-Proof/) · [Worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md) · [v1.5.0 release](https://github.com/FlorianStuettgen/EQ-Proof/releases/tag/v1.5.0)
 
 ### SOC_Replay
 
 SOC_Replay is my public deterministic systems-engineering proof: an offline Python pipeline built around typed rules and contracts. Its indexed execution is checked against a full-scan reference path, making disagreements explicit. Each run emits a portable, verifiable evidence bundle for independent inspection.
 
-[Reference result](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/reference/network-scan/report.md) · [Engineering review](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md) · [Immutable v3.3.0 release](https://github.com/FlorianStuettgen/SOC_Replay/releases/tag/v3.3.0)
+[Reference result](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/reference/network-scan/report.md) · [Engineering review](https://github.com/FlorianStuettgen/SOC_Replay/blob/main/docs/16-Engineering-Review.md) · [v3.3.0 release](https://github.com/FlorianStuettgen/SOC_Replay/releases/tag/v3.3.0)
 
 ## Building next
 

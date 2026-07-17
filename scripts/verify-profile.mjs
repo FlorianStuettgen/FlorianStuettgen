@@ -38,6 +38,29 @@ function proseWordCount(value) {
   return text.match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu)?.length ?? 0;
 }
 
+function decodeContactEntities(value) {
+  const named = new Map([
+    ["commat", "@"],
+    ["period", "."],
+    ["colon", ":"],
+  ]);
+
+  return value
+    .replace(/&#x([0-9a-f]+);/giu, (match, digits) => {
+      const codePoint = Number.parseInt(digits, 16);
+      return Number.isSafeInteger(codePoint) && codePoint <= 0x10ffff
+        ? String.fromCodePoint(codePoint)
+        : match;
+    })
+    .replace(/&#([0-9]+);/gu, (match, digits) => {
+      const codePoint = Number.parseInt(digits, 10);
+      return Number.isSafeInteger(codePoint) && codePoint <= 0x10ffff
+        ? String.fromCodePoint(codePoint)
+        : match;
+    })
+    .replace(/&(commat|period|colon);/giu, (match, name) => named.get(name.toLowerCase()) ?? match);
+}
+
 function linksIn(value) {
   const links = [];
   const pattern = /(!?)\[([^\]]+)\]\(([^)]+)\)|<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/giu;
@@ -170,7 +193,7 @@ const privateProductAvailabilityClaim =
 if (
   currentAvailabilityClaim.test(markdown) ||
   privateProductAvailabilityClaim.test(markdown) ||
-  /\b(?:can be|ready to be)\s+(?:used|tried|opened|viewed|demoed)\b|\b(?:users|customers)\s+can\s+(?:use|try|open)\b/iu.test(markdown)
+  /\b(?:can be|ready to be)\s+(?:used|tried|opened|viewed|demoed|run|accessed|operated|evaluated|downloaded|installed)\b|\b(?:users|customers|anyone|teams?)\s+can\s+(?:use|try|open|run|access|operate|evaluate|download|install)\b|\b(?:in use|used by|available to|open to)\b/iu.test(markdown)
 ) {
   fail("a private product is represented as currently usable or public");
 }
@@ -225,7 +248,11 @@ const imageCount =
   count(/!\[[^\]]+\]\s*\[[^\]]*\]/gu) +
   count(/!\[[^\]]+\](?![([])/gu) +
   count(/<img\b/giu);
-const emailAddressCount = count(/mailto:|\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu);
+const normalizedContactText = decodeContactEntities(markdown);
+const emailAddressCount = count(
+  /mailto:|\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu,
+  normalizedContactText,
+);
 const markupWithoutDeclaredLinks = markdown
   .replace(/<a\b[^>]*>[\s\S]*?<\/a>/giu, " ")
   .replace(/!?\[[^\]]+\]\([^)]*\)/gu, " ");

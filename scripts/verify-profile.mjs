@@ -269,6 +269,7 @@ if (unapprovedLinkCount > 0) fail(`only the approved public proof and LinkedIn t
 if (badgeCount > 0) fail(`badges are forbidden; found ${badgeCount}`);
 if (imageCount > 0) fail(`images are forbidden; found ${imageCount}`);
 if (privateUrlCount > 0) fail(`private repository URLs are forbidden; found ${privateUrlCount}`);
+if (/\bimmutable\b/iu.test(markdown)) fail("mutable releases must not be described as immutable");
 if (emailAddressCount > 0) fail(`email addresses are forbidden; found ${emailAddressCount}`);
 if (phoneNumberCount > 0 || alternateContactCount > 0) fail("LinkedIn must remain the only public contact route");
 if (/Real Estate Decision Desk/iu.test(markdown)) fail("Real Estate Decision Desk must not appear in the profile");

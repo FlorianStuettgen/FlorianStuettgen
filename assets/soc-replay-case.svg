@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="420" viewBox="0 0 1440 420" role="img" aria-labelledby="title desc">
+  <title id="title">SOC_Replay preserved reference case</title>
+  <desc id="desc">A source, trace, and bundle case file showing seven stored events, a complete rule and execution trace, one high-severity detection, a hash-linked ledger, and a verified evidence bundle.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#0d1822"/></linearGradient>
+    <style>
+      .ui{font-family:Inter,Segoe UI,Arial,sans-serif}.muted{fill:#8ea4b4}.bright{fill:#f0f7fb}.cyan{fill:#67e8f9}.green{fill:#86efac}.amber{fill:#facc6b}.red{fill:#fb7185}.label{font-size:14px;font-weight:800;letter-spacing:2px}.small{font-size:14px}.hair{stroke:#2b4050;stroke-width:1}.card{fill:#0c1822;stroke:#2b4050}.mono{font-family:Consolas,Menlo,monospace}
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1438" height="418" rx="24" fill="url(#bg)" stroke="#2b4050" stroke-width="2"/>
+  <g class="ui">
+    <text x="32" y="34" class="cyan label">SOC_REPLAY / MAINTAINED REFERENCE CASE</text>
+    <rect x="1190" y="17" width="218" height="28" rx="14" fill="#10271f" stroke="#2f6c50"/><circle cx="1212" cy="31" r="5" fill="#86efac"/><text x="1305" y="36" text-anchor="middle" class="green" font-size="13" font-weight="800" letter-spacing="1">VERIFICATION PASS</text>
+
+    <rect x="28" y="58" width="374" height="300" rx="18" class="card"/>
+    <text x="58" y="92" class="muted label">SOURCE</text>
+    <text x="58" y="140" class="bright" font-size="42" font-weight="900" letter-spacing="-2">7 STORED EVENTS</text>
+    <text x="58" y="166" class="muted small">Synthetic multi-port scan · no live collection</text>
+    <line x1="58" y1="192" x2="372" y2="192" class="hair"/>
+    <g class="mono" font-size="14">
+      <circle cx="72" cy="224" r="5" fill="#67e8f9"/><text x="90" y="229" class="bright">net-001</text>
+      <circle cx="176" cy="224" r="5" fill="#67e8f9"/><text x="194" y="229" class="bright">net-002</text>
+      <circle cx="280" cy="224" r="5" fill="#67e8f9"/><text x="298" y="229" class="bright">net-003</text>
+      <circle cx="72" cy="258" r="5" fill="#67e8f9"/><text x="90" y="263" class="bright">net-004</text>
+      <circle cx="176" cy="258" r="5" fill="#67e8f9"/><text x="194" y="263" class="bright">net-005</text>
+      <circle cx="280" cy="258" r="5" fill="#486273"/><text x="298" y="263" class="muted">+2 context</text>
+    </g>
+    <rect x="58" y="292" width="314" height="38" rx="10" fill="#0f2330" stroke="#315467"/><text x="215" y="316" text-anchor="middle" class="cyan" font-size="15" font-weight="800">5 EVIDENCE EVENTS PRESERVED</text>
+
+    <path d="M402 208 H438" stroke="#486273" stroke-width="2"/><path d="M428 198 L438 208 L428 218" fill="none" stroke="#486273" stroke-width="2"/>
+
+    <rect x="438" y="58" width="522" height="300" rx="18" class="card"/>
+    <text x="468" y="92" class="muted label">TRACE</text>
+    <text x="468" y="130" class="bright" font-size="27" font-weight="900">THE ALERT IS ONLY ONE ARTIFACT</text>
+    <rect x="468" y="158" width="136" height="58" rx="12" fill="#10212c" stroke="#315467"/><text x="536" y="181" text-anchor="middle" class="muted" font-size="12" font-weight="800">RULE TRACE</text><text x="536" y="204" text-anchor="middle" class="bright" font-size="18" font-weight="900">NET-SCAN-001</text>
+    <path d="M604 187 H648" stroke="#486273" stroke-width="2"/><path d="M638 177 L648 187 L638 197" fill="none" stroke="#486273" stroke-width="2"/>
+    <rect x="648" y="158" width="282" height="58" rx="12" fill="#231b18" stroke="#72532d"/><text x="789" y="181" text-anchor="middle" class="amber" font-size="12" font-weight="800">DETECTION</text><text x="789" y="204" text-anchor="middle" class="bright" font-size="18" font-weight="900">1 HIGH-SEVERITY CASE</text>
+    <text x="468" y="250" class="muted label">HASH-LINKED EXECUTION LEDGER</text>
+    <line x1="486" y1="283" x2="902" y2="283" stroke="#315467" stroke-width="3"/>
+    <g font-size="12" font-weight="800" text-anchor="middle">
+      <circle cx="486" cy="283" r="9" fill="#67e8f9"/><text x="486" y="310" class="muted">LOAD</text>
+      <circle cx="590" cy="283" r="9" fill="#67e8f9"/><text x="590" y="310" class="muted">COMPILE</text>
+      <circle cx="694" cy="283" r="9" fill="#67e8f9"/><text x="694" y="310" class="muted">INDEX</text>
+      <circle cx="798" cy="283" r="9" fill="#67e8f9"/><text x="798" y="310" class="muted">EVALUATE</text>
+      <circle cx="902" cy="283" r="9" fill="#86efac"/><text x="902" y="310" class="muted">VERIFY</text>
+    </g>
+    <rect x="468" y="326" width="462" height="22" rx="11" fill="#111f28"/><text x="699" y="342" text-anchor="middle" class="muted" font-size="12" font-weight="800" letter-spacing="1">ZERO-RESULT TRACES PRESERVED</text>
+
+    <path d="M960 208 H996" stroke="#486273" stroke-width="2"/><path d="M986 198 L996 208 L986 218" fill="none" stroke="#486273" stroke-width="2"/>
+
+    <rect x="996" y="58" width="412" height="300" rx="18" class="card"/>
+    <text x="1026" y="92" class="muted label">BUNDLE</text>
+    <g class="mono">
+      <rect x="1048" y="126" width="292" height="54" rx="10" fill="#10212c" stroke="#315467"/><text x="1070" y="158" class="bright" font-size="17" font-weight="800">report.md</text><text x="1318" y="158" text-anchor="end" class="green" font-size="13">analyst view</text>
+      <rect x="1064" y="190" width="292" height="54" rx="10" fill="#10212c" stroke="#315467"/><text x="1086" y="222" class="bright" font-size="17" font-weight="800">report.json</text><text x="1334" y="222" text-anchor="end" class="green" font-size="13">machine proof</text>
+      <rect x="1080" y="254" width="292" height="54" rx="10" fill="#10212c" stroke="#315467"/><text x="1102" y="286" class="bright" font-size="17" font-weight="800">manifest.json</text><text x="1350" y="286" text-anchor="end" class="green" font-size="13">hashes</text>
+    </g>
+    <text x="1026" y="335" class="muted" font-size="12" font-weight="800">RUN ID</text><text x="1090" y="335" class="bright mono" font-size="13">686f91bca3c385b6</text>
+
+    <rect x="28" y="374" width="1380" height="28" rx="14" fill="#0d1d27" stroke="#2b4050"/>
+    <text x="365" y="393" text-anchor="middle" class="cyan" font-size="13" font-weight="800" letter-spacing="1">INDEXED RESULT = FULL-SCAN REFERENCE</text>
+    <line x1="700" y1="381" x2="700" y2="395" stroke="#2b4050"/>
+    <text x="1054" y="393" text-anchor="middle" class="muted" font-size="13" font-weight="800" letter-spacing="1">SYNTHETIC TELEMETRY / SIMULATED RESPONSE</text>
+  </g>
+</svg>

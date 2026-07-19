@@ -1,30 +1,31 @@
-<img src="assets/eq-proof-processional.svg" alt="EQ-Proof Control Room sequence showing the system view, a blocked monthly-close decision, and the reconstructed evidence behind it" width="100%">
+<h1 align="center">The result is not the proof.</h1>
 
-## [EQ-Proof](https://github.com/FlorianStuettgen/EQ-Proof)
+<p align="center">A forecast can be reported. A detection can fire. A close can be signed.<br>The interesting part begins when one is questioned.</p>
 
-Executable monthly-close assurance for Primavera P6, cost, change,
-risk, and project-specific controls.
+## EQ-Proof
 
-[Control Room](https://florianstuettgen.github.io/EQ-Proof/)
-· [Repository](https://github.com/FlorianStuettgen/EQ-Proof)
-· [90-second case study](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md#the-90-second-demonstration)
+**Every number looked plausible. Together, they were impossible.**
 
-<sub>PUBLIC BETA / PYTHON / PROJECT CONTROLS</sub>
+<img src="assets/eq-proof-case.svg" alt="Synthetic EQ-Proof monthly-close case showing one Control Room view beside a reconstruction from a reported $407M to a defensible $418M and an $11M contradiction" width="100%">
 
-## [SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay)
+**EQ-Proof** rebuilds the close from source records and executable controls, leaving the contradiction attached to the evidence that exposed it.
 
-Deterministic defensive-telemetry replay with exact scenario contracts,
-indexed/full-scan comparison, and verifiable evidence bundles.
+[Enter the Control Room →](https://florianstuettgen.github.io/EQ-Proof/)
 
-[Reference evidence](https://github.com/FlorianStuettgen/SOC_Replay/blob/2745a95c0d285d11678ce297e5e8468d6b4b9f2e/reference/network-scan/report.md)
-· [Repository](https://github.com/FlorianStuettgen/SOC_Replay)
+## SOC_Replay
 
-<sub>PUBLIC / PYTHON / EVIDENCE ENGINEERING</sub>
+**Most detection demos stop at the alert. SOC_Replay preserves the case.**
 
-## Query Cartographer
+<img src="assets/soc-replay-case.svg" alt="SOC_Replay reference case structured as source events, rule and execution traces, and a verified evidence bundle rather than a standalone alert" width="100%">
 
-A local-first system for reasoning about large inherited SQL models.
+Each run accounts for the events it saw, every rule trace—including zero results—the execution path it took, and the bundle it left behind.
 
-<sub>PRIVATE DEVELOPMENT / SQL SYSTEMS</sub>
+[Open the reference case →](https://github.com/FlorianStuettgen/SOC_Replay/blob/2745a95c0d285d11678ce297e5e8468d6b4b9f2e/reference/network-scan/report.md)
 
-<sub>Field execution → project controls → data systems · Edmonton, Alberta</sub>
+## Closed ≠ resolved
+
+<img src="assets/schroedingers-close-teaser.svg" alt="Schrödinger’s Close private-development teaser showing a close marked closed while its evidence remains unresolved" width="100%">
+
+The close is finished. The evidence has not agreed.
+
+**Schrödinger’s Close** · Private development.

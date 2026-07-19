@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="260" viewBox="0 0 1440 260" role="img" aria-labelledby="title desc">
+  <title id="title">Schrödinger’s Close private-development teaser</title>
+  <desc id="desc">A dual-state close showing the operational status as closed while the evidence state remains unresolved.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#090b0f"/><stop offset="1" stop-color="#14121a"/></linearGradient>
+    <linearGradient id="unresolved" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6d4aff" stop-opacity=".16"/><stop offset="1" stop-color="#f2b84b" stop-opacity=".16"/></linearGradient>
+    <style>
+      .ui{font-family:Inter,Segoe UI,Arial,sans-serif}.muted{fill:#9b98aa}.bright{fill:#f4f2fa}.green{fill:#7ee2b8}.amber{fill:#f2c15d}.violet{fill:#b9a7ff}.label{font-size:13px;font-weight:800;letter-spacing:2px}.hair{stroke:#34303e;stroke-width:1}
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1438" height="258" rx="24" fill="url(#bg)" stroke="#34303e" stroke-width="2"/>
+  <g class="ui">
+    <text x="32" y="34" class="violet label">PRIVATE DEVELOPMENT</text>
+    <text x="720" y="83" text-anchor="middle" class="bright" font-size="44" font-weight="900" letter-spacing="-2">CLOSED ≠ RESOLVED</text>
+    <text x="720" y="107" text-anchor="middle" class="violet" font-size="13" font-weight="800" letter-spacing="3">SCHRÖDINGER’S CLOSE</text>
+
+    <rect x="52" y="126" width="548" height="78" rx="14" fill="#0f1d19" stroke="#2f5f50"/>
+    <text x="80" y="151" class="muted label">CLOSE STATUS</text><circle cx="82" cy="178" r="7" fill="#7ee2b8"/><text x="104" y="187" class="green" font-size="31" font-weight="900" letter-spacing="1">CLOSED</text>
+
+    <line x1="600" y1="165" x2="664" y2="165" stroke="#34303e" stroke-width="2"/>
+    <text x="720" y="160" text-anchor="middle" class="muted" font-size="12" font-weight="800" letter-spacing="1">BOTH STATES</text>
+    <text x="720" y="178" text-anchor="middle" class="muted" font-size="12" font-weight="800" letter-spacing="1">ACTIVE</text>
+    <line x1="776" y1="165" x2="840" y2="165" stroke="#34303e" stroke-width="2"/>
+
+    <rect x="840" y="126" width="548" height="78" rx="14" fill="url(#unresolved)" stroke="#655b48"/>
+    <text x="868" y="151" class="muted label">EVIDENCE STATE</text><circle cx="870" cy="178" r="7" fill="#f2c15d"/><text x="892" y="187" class="amber" font-size="31" font-weight="900" letter-spacing="1">UNRESOLVED</text>
+
+    <line x1="32" y1="226" x2="1408" y2="226" class="hair"/>
+    <text x="720" y="247" text-anchor="middle" class="muted" font-size="12" font-weight="800" letter-spacing="2">THE CLOSE IS FINISHED. THE EVIDENCE HAS NOT AGREED.</text>
+  </g>
+</svg>

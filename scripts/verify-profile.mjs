@@ -29,7 +29,7 @@ function proseWordCount(value) {
     .replace(/<[^>]+>/gu, " ")
     .replace(/!\[[^\]]*\]\([^)]*\)/gu, " ")
     .replace(/\[([^\]]+)\]\([^)]*\)/gu, "$1")
-    .replace(/https?:\/\/[^\s<>\")']+/giu, " ")
+    .replace(/https?:\/\/\S+/giu, " ")
     .replace(/[#>*_|`~:·/→–—$();,]/gu, " ");
   return text.match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu)?.length ?? 0;
 }

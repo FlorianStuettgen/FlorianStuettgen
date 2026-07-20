@@ -25,7 +25,8 @@ A close package can look plausible and still be internally inconsistent. I revie
 
 **One project. One reporting period. A defined decision to improve.**
 
-The pilot uses an agreed set of Primavera P6, cost/forecast, change, risk, and optional SQL evidence. The standard handoff includes an executive brief, forecast reconciliation, exception register, evidence map, and review session.
+The pilot uses an agreed set of Primavera P6, cost/forecast, change, risk, and optional SQL evidence. 
+The standard handoff includes an executive brief, forecast reconciliation, exception register, evidence map, and review session.
 
 [Read the Project Controls Close Integrity Pilot →](PAID_PILOT.md)
 
@@ -41,17 +42,20 @@ The maintained synthetic case begins with a reported **$407M EAC**. Available de
 
 ### SQL and reporting-model review
 
-Where reporting logic is part of the problem, I can add a bounded review of inherited SQL: source and metric lineage, join and row-multiplication risk, dialect hazards, privacy exposure, and a validation-required repair plan. The underlying Query Cartographer product remains private until its publication gates pass.
+Where reporting logic is part of the problem, I can add a bounded review of inherited SQL: source and metric lineage, join and row-multiplication risk, dialect hazards, privacy exposure, and a validation-required repair plan. 
 
-## Why this work is credible
 
-I am a Project Controls Specialist in construction working at the intersection of project delivery, SQL, data systems, and decision assurance. My background combines field and project-delivery context, Fortune 500 client-facing work, graduate business education, and applied data-science training.
+## Why this works
+
+I am a Project Controls Specialist in construction working at the intersection of project delivery, SQL, data systems, and decision assurance. 
+My background combines field and project-delivery context, Fortune 500 client-facing work, graduate business education, and applied data-science training.
 
 The engineering approach is deliberately conservative: local-first processing where supported, explicit semantic boundaries, deterministic outputs, reproducible evidence, and clear non-claims.
 
 ## Boundaries
 
-This work is decision support based on supplied evidence and agreed controls. It is not an audit opinion, contractual certification, schedule-engine replacement, probabilistic risk model, or production system of record. I do not modify production data during a diagnostic, and confidential material is never submitted through a public demo or public GitHub issue.
+This work is decision support based on supplied evidence and agreed controls. It is not an audit opinion, contractual certification, schedule-engine replacement, probabilistic risk model, or production system of record. 
+I do not modify production data during a diagnostic, and confidential material is never submitted through a public demo or public GitHub issue.
 
 ## Additional engineering evidence
 

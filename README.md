@@ -1,4 +1,4 @@
-<h1 align="center">Project Controls & Data Assurance for construction and capital projects</h1>
+<h1 align="center">Software for Project Controls & Data Assurance</h1>
 
 <p align="center"><strong>I help project-controls leaders find forecast, schedule, change, risk, and reporting contradictions before monthly close.</strong></p>
 

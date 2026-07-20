@@ -1,31 +1,64 @@
-<h1 align="center">The result is not the proof.</h1>
+<h1 align="center">Project-controls and data assurance for construction and capital projects</h1>
 
-<p align="center">A forecast can be reported. A detection can fire. A close can be signed.<br>The interesting part begins when one is questioned.</p>
+<p align="center"><strong>I help project-controls leaders find forecast, schedule, change, risk, and reporting contradictions before monthly close.</strong></p>
 
-## EQ-Proof
+<p align="center">Construction delivery · Project controls · SQL · Local-first evidence</p>
 
-**Every number looked plausible. Together, they were impossible.**
+<p align="center">
+  <a href="https://florianstuettgen.github.io/EQ-Proof/">View the working case</a> ·
+  <a href="PAID_PILOT.md">Scope a paid pilot</a> ·
+  <a href="https://www.linkedin.com/in/florian-stuettgen">Contact on LinkedIn</a>
+</p>
 
-<img src="assets/eq-proof-case.svg" alt="Synthetic EQ-Proof monthly-close case showing one Control Room view beside a reconstruction from a reported $407M to a defensible $418M and an $11M contradiction" width="100%">
+## The paid outcome
 
-**EQ-Proof** rebuilds the close from source records and executable controls, leaving the contradiction attached to the evidence that exposed it.
+A close package can look plausible and still be internally inconsistent. I review supplied project-controls evidence, reconstruct key positions under explicit controls, and return the contradictions attached to their source records and required actions.
 
-[Enter the Control Room →](https://florianstuettgen.github.io/EQ-Proof/)
+| Buyer question | What I deliver |
+| --- | --- |
+| Can this close be accepted under the controls we agreed? | A documented **ready**, **review**, or **blocked** conclusion with unresolved assumptions visible. |
+| Where does the forecast fail to reconcile? | A submitted-versus-reconstructed bridge tied to the available cost, schedule, change, and risk evidence. |
+| What should the team address first? | A ranked exception register with source, control, severity, residual, and remediation. |
+| Can another reviewer reproduce the conclusion? | A source manifest, executed-control record, and evidence path from input to decision. |
 
-## SOC_Replay
+## Fixed-scope paid pilot
 
-**Most detection demos stop at the alert. SOC_Replay preserves the case.**
+**One project. One reporting period. A defined decision to improve.**
 
-<img src="assets/soc-replay-case.svg" alt="SOC_Replay reference case structured as source events, rule and execution traces, and a verified evidence bundle rather than a standalone alert" width="100%">
+The pilot uses an agreed set of Primavera P6, cost/forecast, change, risk, and optional SQL evidence. The standard handoff includes an executive brief, forecast reconciliation, exception register, evidence map, and review session.
 
-Each run accounts for the events it saw, every rule trace—including zero results—the execution path it took, and the bundle it left behind.
+[Read the Project Controls Close Integrity Pilot →](PAID_PILOT.md)
 
-[Open the reference case →](https://github.com/FlorianStuettgen/SOC_Replay/blob/2745a95c0d285d11678ce297e5e8468d6b4b9f2e/reference/network-scan/report.md)
+## Working proof
 
-## Closed ≠ resolved
+### EQ-Proof Control Room
 
-<img src="assets/schroedingers-close-teaser.svg" alt="Schrödinger’s Close private-development teaser showing a close marked closed while its evidence remains unresolved" width="100%">
+<img src="assets/eq-proof-case.svg" alt="Synthetic EQ-Proof monthly-close case showing a reported $407M EAC, a detail-reconstructed $418M EAC, and an $11M deterministic contradiction" width="100%">
 
-The close is finished. The evidence has not agreed.
+The maintained synthetic case begins with a reported **$407M EAC**. Available detail reconstructs to **$418M**, exposing an **$11M deterministic contradiction** before declared change and risk are considered. The result remains attached to the source evidence and controls that produced it.
 
-**Schrödinger’s Close** · Private development.
+[Open the browser workbench](https://florianstuettgen.github.io/EQ-Proof/) · [Review the worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md)
+
+### SQL and reporting-model review
+
+Where reporting logic is part of the problem, I can add a bounded review of inherited SQL: source and metric lineage, join and row-multiplication risk, dialect hazards, privacy exposure, and a validation-required repair plan. The underlying Query Cartographer product remains private until its publication gates pass.
+
+## Why this work is credible
+
+I am a Project Controls Specialist in construction working at the intersection of project delivery, SQL, data systems, and decision assurance. My background combines field and project-delivery context, Fortune 500 client-facing work, graduate business education, and applied data-science training.
+
+The engineering approach is deliberately conservative: local-first processing where supported, explicit semantic boundaries, deterministic outputs, reproducible evidence, and clear non-claims.
+
+## Boundaries
+
+This work is decision support based on supplied evidence and agreed controls. It is not an audit opinion, contractual certification, schedule-engine replacement, probabilistic risk model, or production system of record. I do not modify production data during a diagnostic, and confidential material is never submitted through a public demo or public GitHub issue.
+
+## Additional engineering evidence
+
+[SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay) demonstrates the same evidence-first approach in a different domain: deterministic defensive-telemetry replay with exact scenario contracts and verifiable evidence bundles.
+
+## Contact
+
+For a paid pilot or consulting discussion, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). Include your role, project type, reporting period, available export types, and the decision date you are working toward. Do not send confidential files in the first message.
+
+[Licensing and launch decisions →](COMMERCIALIZATION_DECISIONS.md)

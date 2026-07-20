@@ -61,4 +61,3 @@ This work is decision support based on supplied evidence and agreed controls. It
 
 For a paid pilot or consulting discussion, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). Include your role, project type, reporting period, available export types, and the decision date you are working toward. Do not send confidential files in the first message.
 
-[Licensing and launch decisions →](COMMERCIALIZATION_DECISIONS.md)

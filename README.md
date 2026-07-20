@@ -63,5 +63,5 @@ I do not modify production data during a diagnostic, and confidential material i
 
 ## Contact
 
-For a paid pilot or consulting discussion, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). Include your role, project type, reporting period, available export types, and the decision date you are working toward. Do not send confidential files in the first message.
+For a consulting discussion, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). Include your role, project type, reporting period, available export types, and the decision date you are working toward. Do not send confidential files in the first message.
 

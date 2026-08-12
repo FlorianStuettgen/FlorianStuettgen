@@ -104,7 +104,9 @@ Diagnostics are performed against supplied evidence and agreed controls. Product
 
 I schedule engagements in advance and keep the active workload deliberately limited.
 
-For substantive project-controls, data-assurance, SQL, or recruiter inquiries aligned with project controls and data systems, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). 
+For substantive project-controls, data-assurance, SQL, or recruiter inquiries aligned with project controls and data systems, 
+
+[contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). 
 Please include the problem, relevant context, and expected timing. 
 
 I do not respond to generic sales, networking, or recruitment messages.

@@ -78,7 +78,7 @@ The aim is not to rewrite an entire reporting environment. It is to identify the
 
 The engineering approach is conservative by design.
 
-Data stays local where the workflow supports it. Controls and semantic boundaries are made explicit. Outputs are deterministic where deterministic claims are made. Evidence is separated from assumptions, and the system records what it can—and cannot—prove.
+Data stays local where the workflow supports it. Controls and semantic boundaries are made explicit. Outputs are deterministic where deterministic claims are made. Evidence is separated from assumptions, and the system records what it can and cannot prove.
 
 This makes the result easier to challenge, reproduce, and defend.
 

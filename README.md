@@ -86,7 +86,8 @@ This makes the result easier to challenge, reproduce, and defend.
 
 I work in project controls for large construction programs at the intersection of project delivery, SQL, data systems, and decision assurance.
 
-My background spans field supervision, construction delivery, project controls, data engineering, graduate business education, and applied data science. That combination matters. I understand both how project information is produced and how it can become distorted on its way to a management decision.
+My background spans field supervision, construction delivery, project controls, data engineering, graduate business education, and applied data science. That combination matters. 
+I understand both how project information is produced and how it can become distorted on its way to a management decision.
 
 ## Additional engineering work
 
@@ -104,7 +105,7 @@ Diagnostics are performed against supplied evidence and agreed controls. Product
 
 I schedule engagements in advance and keep the active workload deliberately limited.
 
-For substantive project-controls, data-assurance, SQL, or recruiter inquiries aligned with project controls and data systems, 
+For substantive project-controls, data-assurance, SQL, or recruiter inquiries aligned with project controls and data systems: 
 
 [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). 
 Please include the problem, relevant context, and expected timing. 

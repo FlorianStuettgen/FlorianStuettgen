@@ -18,7 +18,7 @@ Most close problems do not begin with an obviously absurd number.
 
 They appear as plausible forecasts, schedules, change positions, and risk allowances that stop agreeing once they are traced back to the underlying detail.
 
-I reconstruct those positions from supplied project-controls evidence, test them against explicit controls, and show where the conclusion breaks—down to the source record, control, and required action.
+I reconstruct those positions from the supplied project-controls evidence, test them against explicit controls, and show where the conclusion breaks down to the source record, control, and required action.
 
 A typical review provides:
 
@@ -55,7 +55,7 @@ The standard handoff includes:
 - A source-to-conclusion evidence map
 - A review session with the responsible team
 
-The scope is deliberately bounded. The objective is not to replace the project-controls system. It is to determine whether a specific reporting position is supported by the available evidence.
+The scope is deliberately bounded. The objective is not to replace the project-controls system. It is to determine whether the available evidence supports a specific reporting position.
 
 [Review the Project Controls Close Integrity Pilot →](PAID_PILOT.md)
 
@@ -86,7 +86,7 @@ This makes the result easier to challenge, reproduce, and defend.
 
 I work in project controls for large construction programs at the intersection of project delivery, SQL, data systems, and decision assurance.
 
-My background spans field supervision, construction delivery, project controls, data engineering, graduate business education, and applied data science. That combination matters: I understand both how project information is produced and how it can become distorted on its way to a management decision.
+My background spans field supervision, construction delivery, project controls, data engineering, graduate business education, and applied data science. That combination matters. I understand both how project information is produced and how it can become distorted on its way to a management decision.
 
 ## Additional engineering work
 
@@ -102,4 +102,8 @@ Diagnostics are performed against supplied evidence and agreed controls. Product
 
 ## Contact
 
-For a project-controls assurance review, reporting-model diagnostic, or fixed-scope pilot, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen).
+I schedule engagements in advance and keep the active workload deliberately limited.
+
+For substantive project-controls, data-assurance, SQL, or recruiter inquiries aligned with project controls and data systems, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). 
+Please include the problem, relevant context, and expected timing. I generally do not respond to generic sales, networking, or recruitment messages.
+

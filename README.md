@@ -1,34 +1,31 @@
-<h1 align="center">Software for Project Controls & Data Assurance</h1>
-
-<p align="center"><strong>I help project-controls leaders find forecast, schedule, change, risk, and reporting contradictions before monthly close.</strong></p>
-
-<p align="center">Construction delivery · Project controls · SQL · Local-first evidence</p>
+<h1 align="center">Project Controls Should Reconcile</h1>
 
 <p align="center">
-  <a href="https://florianstuettgen.github.io/EQ-Proof/">View the working case</a> ·
-  <a href="PAID_PILOT.md">Scope a paid pilot</a> ·
-  <a href="https://www.linkedin.com/in/florian-stuettgen">Contact on LinkedIn</a>
+  <strong>I build software that finds the gap between what a project reports and what its underlying records can support.</strong>
 </p>
 
-## The paid outcome
+<p align="center">Construction delivery · Project controls · SQL · Evidence-backed decisions</p>
 
-A close package can look plausible and still be internally inconsistent. I review supplied project-controls evidence, reconstruct key positions under explicit controls, and return the contradictions attached to their source records and required actions.
+<p align="center">
+  <a href="https://florianstuettgen.github.io/EQ-Proof/">Explore the working case</a> ·
+  <a href="PAID_PILOT.md">Review the pilot scope</a> ·
+  <a href="https://www.linkedin.com/in/florian-stuettgen">Contact me</a>
+</p>
 
-| Buyer question | What I deliver |
-| --- | --- |
-| Can this close be accepted under the controls we agreed? | A documented **ready**, **review**, or **blocked** conclusion with unresolved assumptions visible. |
-| Where does the forecast fail to reconcile? | A submitted-versus-reconstructed bridge tied to the available cost, schedule, change, and risk evidence. |
-| What should the team address first? | A ranked exception register with source, control, severity, residual, and remediation. |
-| Can another reviewer reproduce the conclusion? | A source manifest, executed-control record, and evidence path from input to decision. |
+## What I do
 
-## Fixed-scope paid pilot
+Most close problems do not begin with an obviously absurd number.
 
-**One project. One reporting period. A defined decision to improve.**
+They appear as plausible forecasts, schedules, change positions, and risk allowances that stop agreeing once they are traced back to the underlying detail.
 
-The pilot uses an agreed set of Primavera P6, cost/forecast, change, risk, and optional SQL evidence. 
-The standard handoff includes an executive brief, forecast reconciliation, exception register, evidence map, and review session.
+I reconstruct those positions from supplied project-controls evidence, test them against explicit controls, and show where the conclusion breaks—down to the source record, control, and required action.
 
-[Read the Project Controls Close Integrity Pilot →](PAID_PILOT.md)
+A typical review provides:
+
+- A clear **ready**, **review**, or **blocked** conclusion
+- A submitted-versus-reconstructed forecast bridge
+- A ranked register of exceptions and unresolved assumptions
+- A reproducible evidence path from source data to decision
 
 ## Working proof
 
@@ -36,32 +33,73 @@ The standard handoff includes an executive brief, forecast reconciliation, excep
 
 <img src="assets/eq-proof-case.svg" alt="Synthetic EQ-Proof monthly-close case showing a reported $407M EAC, a detail-reconstructed $418M EAC, and an $11M deterministic contradiction" width="100%">
 
-The maintained synthetic case begins with a reported **$407M EAC**. Available detail reconstructs to **$418M**, exposing an **$11M deterministic contradiction** before declared change and risk are considered. The result remains attached to the source evidence and controls that produced it.
+The synthetic case begins with a reported **$407M EAC**. The available cost detail reconstructs to **$418M**, exposing an **$11M contradiction** before declared change and risk are considered.
+
+That does not prove that $418M is the correct forecast. It proves that the reported $407M cannot be relied upon without further explanation.
+
+The result remains attached to the records and controls that produced it, so another reviewer can reproduce the conclusion rather than simply accept it.
 
 [Open the browser workbench](https://florianstuettgen.github.io/EQ-Proof/) · [Review the worked case](https://github.com/FlorianStuettgen/EQ-Proof/blob/main/docs/SHOWCASE.md)
 
-### SQL and reporting-model review
+## Fixed-scope pilot
 
-Where reporting logic is part of the problem, I can add a bounded review of inherited SQL: source and metric lineage, join and row-multiplication risk, dialect hazards, privacy exposure, and a validation-required repair plan. 
+**One project. One reporting period. One decision that needs to hold up under review.**
 
+The pilot works from an agreed set of Primavera P6, cost and forecast, change, risk, and optional SQL evidence.
 
-## Why this works
+The standard handoff includes:
 
-I am a Project Controls Specialist in construction working at the intersection of project delivery, SQL, data systems, and decision assurance. 
-My background combines field and project-delivery context, Fortune 500 client-facing work, graduate business education, and applied data-science training.
+- An executive decision brief
+- A forecast-reconciliation bridge
+- A prioritized exception register
+- A source-to-conclusion evidence map
+- A review session with the responsible team
 
-The engineering approach is deliberately conservative: local-first processing where supported, explicit semantic boundaries, deterministic outputs, reproducible evidence, and clear non-claims.
+The scope is deliberately bounded. The objective is not to replace the project-controls system. It is to determine whether a specific reporting position is supported by the available evidence.
+
+[Review the Project Controls Close Integrity Pilot →](PAID_PILOT.md)
+
+## When SQL is part of the problem
+
+Sometimes the contradiction is not present in the source records. It is introduced by the reporting model.
+
+Where necessary, I can include a bounded review of inherited SQL covering:
+
+- Source, transformation, and metric lineage
+- Join behaviour and row-multiplication risk
+- Aggregation and filtering defects
+- Dialect and portability hazards
+- Privacy or unintended data exposure
+- A validation-required repair plan
+
+The aim is not to rewrite an entire reporting environment. It is to identify the logic that materially affects the decision under review.
+
+## How I work
+
+The engineering approach is conservative by design.
+
+Data stays local where the workflow supports it. Controls and semantic boundaries are made explicit. Outputs are deterministic where deterministic claims are made. Evidence is separated from assumptions, and the system records what it can—and cannot—prove.
+
+This makes the result easier to challenge, reproduce, and defend.
+
+## Background
+
+I work in project controls for large construction programs at the intersection of project delivery, SQL, data systems, and decision assurance.
+
+My background spans field supervision, construction delivery, project controls, data engineering, graduate business education, and applied data science. That combination matters: I understand both how project information is produced and how it can become distorted on its way to a management decision.
+
+## Additional engineering work
+
+[SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay) applies the same evidence-first discipline to defensive security telemetry.
+
+It uses deterministic scenario replay, explicit scenario contracts, and verifiable evidence bundles. The domain is different, but the standard is the same: a conclusion should remain traceable to what actually happened.
 
 ## Boundaries
 
-This work is decision support based on supplied evidence and agreed controls. It is not an audit opinion, contractual certification, schedule-engine replacement, probabilistic risk model, or production system of record. 
-I do not modify production data during a diagnostic, and confidential material is never submitted through a public demo or public GitHub issue.
+This work supports project decisions. It does not issue an audit opinion, contractual certification, probabilistic risk forecast, or replacement schedule calculation.
 
-## Additional engineering evidence
-
-[SOC_Replay](https://github.com/FlorianStuettgen/SOC_Replay) demonstrates the same evidence-first approach in a different domain: deterministic defensive-telemetry replay with exact scenario contracts and verifiable evidence bundles.
+Diagnostics are performed against supplied evidence and agreed controls. Production data is not modified, and confidential information should never be submitted through a public demo, repository, or GitHub issue.
 
 ## Contact
 
-For a consulting discussion, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen). Include your role, project type, reporting period, available export types, and the decision date you are working toward. Do not send confidential files in the first message.
-
+For a project-controls assurance review, reporting-model diagnostic, or fixed-scope pilot, [contact me on LinkedIn](https://www.linkedin.com/in/florian-stuettgen).

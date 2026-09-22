@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="180" viewBox="0 0 1200 180" role="img" aria-labelledby="title description">
+  <title id="title">Connected paths</title>
+  <desc id="description">An abstract drawing of fine blue paths converging into a clear turquoise line on an ink-blue field.</desc>
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#111b2d"/>
+      <stop offset="1" stop-color="#192941"/>
+    </linearGradient>
+    <linearGradient id="trace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#798cf5"/>
+      <stop offset="1" stop-color="#75d4c6"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#9caec9" stroke-opacity="0.08"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1200" height="180" rx="10"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="180" fill="url(#field)"/>
+    <rect x="570" width="630" height="180" fill="url(#grid)"/>
+    <g fill="none" stroke="#667998" stroke-width="1" opacity="0.4">
+      <path d="M-20 40H300L350 90H480"/>
+      <path d="M-20 140H245L295 90H480"/>
+      <path d="M670 90H775L825 40H1220"/>
+      <path d="M670 90H865L915 140H1220"/>
+      <path d="M890 0V180M1010 0V180M1130 0V180"/>
+    </g>
+    <path d="M-20 90H365L405 50H535L615 130H735L775 90H1220" fill="none" stroke="url(#trace)" stroke-width="2.5"/>
+    <path d="M405 130H535L615 50H735" fill="none" stroke="#a1afff" stroke-width="1.5" opacity="0.65"/>
+    <g fill="#111b2d" stroke="#9daaff" stroke-width="2">
+      <circle cx="405" cy="50" r="5"/>
+      <circle cx="535" cy="50" r="5"/>
+      <circle cx="615" cy="130" r="5"/>
+    </g>
+    <circle cx="775" cy="90" r="13" fill="#75d4c6" fill-opacity="0.09"/>
+    <circle cx="775" cy="90" r="5" fill="#75d4c6"/>
+    <path d="M54 34H74M54 34V54M1146 126V146H1126" fill="none" stroke="#9caec9" stroke-width="1" opacity="0.55"/>
+  </g>
+</svg>

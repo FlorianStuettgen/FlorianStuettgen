@@ -1,5 +1,3 @@
-<img src="assets/profile-banner.svg" alt="" width="100%">
-
 # Florian Stuettgen
 
 I work in **project controls** and **data engineering**, building software for clearer decisions and traceable results.
